@@ -13,12 +13,10 @@ const DESCRIPTION =
 
 const DEFAULT_TITLE = "Jacob Flores"
 
-const currentTitle =
-  title !== null ? `${title} | ${DEFAULT_TITLE}` : DEFAULT_TITLE
+const currentTitle = title ? `${title} | ${DEFAULT_TITLE}` : DEFAULT_TITLE
 
 const portfolioPrefix = `${DEFAULT_TITLE} Portfolio`
-const ogTitle =
-  title !== null ? `${portfolioPrefix} | ${title}` : portfolioPrefix
+const ogTitle = title ? `${portfolioPrefix} | ${title}` : portfolioPrefix
 
 // https://docs.astro.build/en/reference/api-reference/#astrourl
 // Construct a canonical URL using your production domain
