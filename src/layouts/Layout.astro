@@ -8,28 +8,39 @@ interface Props {
 
 const { title } = Astro.props
 
+const DESCRIPTION =
+  "Jacob Flores is a passionate frontend developer, dedicated to crafting engaging web experiences and innovative projects."
 const DEFAULT_TITLE = "Jacob Flores"
 
 const currentTitle = title ? `${title} | ${DEFAULT_TITLE}` : DEFAULT_TITLE
+
+const ogTitle = title ? `${DEFAULT_TITLE} Portfolio | ${title}` : DEFAULT_TITLE
+
+// https://docs.astro.build/en/reference/api-reference/#astrourl
+// Construct a canonical URL using your production domain
+const canonicalURL = new URL(Astro.url.pathname, Astro.site)
+// Construct a URL for SEO meta tags using your current domain
+const socialImageURL = new URL("/images/og-preview.png", Astro.url)
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta
-      name="description"
-      content="Jacob Flores is a passionate frontend developer, dedicated to crafting engaging web experiences and innovative projects."
-    />
+    <meta name="description" content={DESCRIPTION} />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>{currentTitle}</title>
-  </head>
 
-  <script src="../lib/updateBackgroundOnMouseMove.js">
-    // https://docs.astro.build/en/guides/client-side-scripts/
-  </script>
+    <meta property="og:title" content={ogTitle} />
+    <meta property="og:description" content={DESCRIPTION} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:image" content={socialImageURL} />
+    <script src="../lib/updateBackgroundOnMouseMove.js">
+      // https://docs.astro.build/en/guides/client-side-scripts/
+    </script>
+  </head>
 
   <body class="min-h-screen pb-32 flex flex-col items-center">
     <Header />
