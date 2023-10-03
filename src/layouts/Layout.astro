@@ -10,6 +10,7 @@ const { title } = Astro.props
 
 const DESCRIPTION =
   "Jacob Flores is a passionate frontend developer, dedicated to crafting engaging web experiences and innovative projects."
+
 const DEFAULT_TITLE = "Jacob Flores"
 
 const currentTitle = title ? `${title} | ${DEFAULT_TITLE}` : DEFAULT_TITLE
@@ -20,7 +21,7 @@ const ogTitle = title ? `${DEFAULT_TITLE} Portfolio | ${title}` : DEFAULT_TITLE
 // Construct a canonical URL using your production domain
 const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 // Construct a URL for SEO meta tags using your current domain
-const socialImageURL = new URL("/images/og-preview.png", Astro.url)
+const socialImageURL = new URL("/images/og-preview.png", Astro.site)
 ---
 
 <!doctype html>
