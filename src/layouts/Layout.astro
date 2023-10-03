@@ -1,4 +1,7 @@
 ---
+import Header from "../components/Header.astro"
+import "@fontsource-variable/inter"
+
 interface Props {
   title?: string
 }
@@ -14,14 +17,26 @@ const currentTitle = title ? `${title} | ${DEFAULT_TITLE}` : DEFAULT_TITLE
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="Astro description" />
+    <meta
+      name="description"
+      content="Jacob Flores is a passionate frontend developer, dedicated to crafting engaging web experiences and innovative projects."
+    />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>{currentTitle}</title>
   </head>
-  <body>
-    <slot />
+
+  <script src="../lib/updateBackgroundOnMouseMove.js">
+    // https://docs.astro.build/en/guides/client-side-scripts/
+  </script>
+
+  <body class="min-h-screen pb-32 flex flex-col items-center">
+    <Header />
+
+    <main class="max-w-3xl w-full px-4 m-auto h-full">
+      <slot />
+    </main>
   </body>
 </html>
 <style is:global>
@@ -38,9 +53,29 @@ const currentTitle = title ? `${title} | ${DEFAULT_TITLE}` : DEFAULT_TITLE
   }
   html {
     font-family: system-ui, sans-serif;
-    background: #13151a;
+    background: #0b0b0b;
     background-size: 224px;
+    color-scheme: dark;
+    line-height: 1.5;
   }
+  body {
+    font-family: "Inter", sans-serif;
+    /* circle at 50% 50%, */
+    background: radial-gradient(
+      600px at 10% 10%,
+      rgba(192, 13, 224, 0.15),
+      transparent 80%
+    );
+    /* animation: wave 1s infinite alternate; */
+  }
+  /* @keyframes wave {
+    0% {
+      background-position: 50% 100%;
+    }
+    100% {
+      background-position: 50% 0%;
+    }
+  } */
   code {
     font-family:
       Menlo,
