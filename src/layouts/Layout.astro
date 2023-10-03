@@ -23,10 +23,10 @@ const ogTitle = title ? `${portfolioPrefix} | ${title}` : portfolioPrefix
 const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 // Construct a URL for SEO meta tags using your current domain
 const socialImageURL = new URL("/images/og-preview.png", Astro.site)
-const squareSocialImageURL = new URL(
-  "/images/square-og-preview.png",
-  Astro.site,
-)
+// const squareSocialImageURL = new URL(
+//   "/images/square-og-preview.png",
+//   Astro.site,
+// )
 
 const TWITTER_HANDLE = "@yeiicobF"
 ---
@@ -48,10 +48,10 @@ const TWITTER_HANDLE = "@yeiicobF"
 
     <meta property="twitter:title" content={ogTitle} />
     <meta property="twitter:description" content={DESCRIPTION} />
-    <meta property="twitter:image" content={squareSocialImageURL} />
+    <meta property="twitter:image" content={socialImageURL} />
     <meta property="twitter:site" content={TWITTER_HANDLE} />
     <meta property="twitter:creator" content={TWITTER_HANDLE} />
-    <meta property="twitter:card" content="summary" />
+    <meta property="twitter:card" content="summary_large_image" />
 
     <script src="../lib/updateBackgroundOnMouseMove.js">
       // https://docs.astro.build/en/guides/client-side-scripts/
