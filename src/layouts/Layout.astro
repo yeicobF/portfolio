@@ -60,12 +60,13 @@ const TWITTER_HANDLE = "@yeiicobF"
     </script>
   </head>
 
-  <body class="min-h-screen pb-32 flex flex-col items-center">
-    <Header />
-
-    <main class="max-w-3xl w-full px-4 m-auto h-full">
-      <slot />
-    </main>
+  <body class="min-h-screen pt-8 pb-32 flex flex-col items-center">
+    <div class="max-w-6xl w-full px-4 md:px-16 m-auto h-full">
+      <Header />
+      <main>
+        <slot />
+      </main>
+    </div>
   </body>
 </html>
 <style is:global>
@@ -83,7 +84,6 @@ const TWITTER_HANDLE = "@yeiicobF"
   html {
     font-family: system-ui, sans-serif;
     background: #0b0b0b;
-    background-size: 224px;
     color-scheme: dark;
     line-height: 1.5;
   }
@@ -91,8 +91,8 @@ const TWITTER_HANDLE = "@yeiicobF"
     font-family: "Inter", sans-serif;
     /* circle at 50% 50%, */
     background: radial-gradient(
-      600px at 10% 10%,
-      rgba(192, 13, 224, 0.15),
+      1000px at 10% 15%,
+      rgba(192, 13, 224, 0.40),
       transparent 80%
     );
     /* animation: wave 1s infinite alternate; */
