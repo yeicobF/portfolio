@@ -1,6 +1,7 @@
 ---
 import "@fontsource-variable/inter"
 import Header from "@/components/Header.astro"
+import socialImageUrl from "@/assets/images/og-preview.png"
 
 interface Props {
   title?: string
@@ -22,7 +23,8 @@ const ogTitle = title ? `${portfolioPrefix} | ${title}` : portfolioPrefix
 // Construct a canonical URL using your production domain
 const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 // Construct a URL for SEO meta tags using your current domain
-const socialImageURL = new URL("/images/og-preview.png", Astro.site)
+// const socialImageUrl = new URL("/images/og-preview.png", Astro.site)
+
 // const squareSocialImageURL = new URL(
 //   "/images/square-og-preview.png",
 //   Astro.site,
@@ -44,11 +46,11 @@ const TWITTER_HANDLE = "@yeiicobF"
     <meta property="og:title" content={ogTitle} />
     <meta property="og:description" content={DESCRIPTION} />
     <meta property="og:url" content={canonicalURL} />
-    <meta property="og:image" content={socialImageURL} />
+    <meta property="og:image" content={socialImageUrl.src} />
 
     <meta property="twitter:title" content={ogTitle} />
     <meta property="twitter:description" content={DESCRIPTION} />
-    <meta property="twitter:image" content={socialImageURL} />
+    <meta property="twitter:image" content={socialImageUrl.src} />
     <meta property="twitter:site" content={TWITTER_HANDLE} />
     <meta property="twitter:creator" content={TWITTER_HANDLE} />
     <meta property="twitter:card" content="summary_large_image" />
