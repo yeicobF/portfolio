@@ -1,4 +1,6 @@
-const updateBackgroundOnMouseMove = (event) => {
+// Update position of background on mouse move.
+// Based on Brittany Chiang's website: https://brittanychiang.com/
+const updateBackgroundOnMouseMove = (event: MouseEvent): void => {
   // Selecciona el elemento en el que deseas escuchar los eventos de ratón.
   const body = document.body
 
