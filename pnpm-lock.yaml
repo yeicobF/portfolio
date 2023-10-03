@@ -8,6 +8,9 @@ dependencies:
   '@astrojs/tailwind':
     specifier: 5.0.0
     version: 5.0.0(astro@3.2.2)(tailwindcss@3.3.3)
+  '@fontsource/send-flowers':
+    specifier: 5.0.13
+    version: 5.0.13
   astro:
     specifier: ^3.2.2
     version: 3.2.2
@@ -726,6 +729,10 @@ packages:
   /@fastify/busboy@2.0.0:
     resolution: {integrity: sha512-JUFJad5lv7jxj926GPgymrWQxxjPYuJNiNjNMzqT+HiuP6Vl3dk5xzG+8sTX96np0ZAluvaMzPsjhHZ5rNuNQQ==}
     engines: {node: '>=14'}
+    dev: false
+
+  /@fontsource/send-flowers@5.0.13:
+    resolution: {integrity: sha512-hCwwwfxgM8myMptEQM8m5GwWIxKwHDWBjobvaYW1EOCVgJSMCJWKEV61EAirGyFIh2jbPWBSjzDAAtOFYagnmw==}
     dev: false
 
   /@jridgewell/gen-mapping@0.3.3:
