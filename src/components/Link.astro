@@ -1,0 +1,17 @@
+---
+const { href, target, isWavy } = Astro.props
+
+const rel = target === "_blank" ? "noopener noreferrer" : null
+---
+
+<a
+  href={href}
+  class:list={[
+    "underline text-[#E5C600] hover:text-[#F6EDAF]",
+    isWavy && "decoration-wavy",
+  ]}
+  target={target}
+  rel={rel}
+>
+  <slot />
+</a>
