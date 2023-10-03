@@ -7,7 +7,7 @@ import tailwind from "@astrojs/tailwind"
 export default defineConfig({
   integrations: [tailwind()],
   site: "https://www.jacobflores.dev",
-  output: "static",
+  output: "server",
   adapter: vercel({
     webAnalytics: {
       enabled: true,
