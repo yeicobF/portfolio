@@ -1,21 +1,40 @@
 ---
 import Layout from "@/layouts/Layout.astro"
+import Link from "@/components/Link.astro"
 ---
 
 <Layout>
-  <section class="my-auto">
-    <h1 class="text-7xl font-black">Jacob Flores</h1>
-    <p class="text-2xl">
-      <strong>Technology Manager</strong> at
-      <a
-        href="https://www.aiapartner.com/"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="underline text-[#E5C600]"
-      >
-        <strong> AIA Partners</strong>
-      </a>
-    </p>
+  <section class="my-auto flex flex-col gap-16">
+    <header>
+      <h1 class="text-7xl font-black">Jacob Flores</h1>
+      <p class="text-2xl">
+        <strong>Technology Manager</strong> at
+        <Link href="https://www.aiapartner.com/" target="_blank" isWavy>
+          <strong> AIA Partners</strong>
+        </Link>
+      </p>
+    </header>
+
+    <section class="flex flex-col gap-4 text-xl">
+      <p>
+        Hi there! I'm Jacob and
+        <strong> I'm passionate about web development and technology</strong>.
+      </p>
+      <p>
+        I love being part of a community, sharing my knowledge, and learning
+        from others. Lately, I've participated in <strong>hackathons</strong>
+         and <strong> given talks to my university peers</strong>, being part of
+        a community known as
+        <Link href="https://www.linkedin.com/company/studevs" target="_blank">
+          <strong>Studevs</strong>
+        </Link>
+         .
+      </p>
+      <p>
+        I'm very excited about this stage of my life and professional career, as
+        I continue to experiment and learn from the people around me!
+      </p>
+    </section>
   </section>
 
   <style>
