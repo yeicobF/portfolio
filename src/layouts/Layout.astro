@@ -43,6 +43,8 @@ const TWITTER_HANDLE = "@yeiicobF"
     <meta name="generator" content={Astro.generator} />
     <title>{currentTitle}</title>
 
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
     <meta property="og:title" content={ogTitle} />
     <meta property="og:description" content={DESCRIPTION} />
     <meta property="og:url" content={canonicalURL} />
@@ -56,7 +58,7 @@ const TWITTER_HANDLE = "@yeiicobF"
     <meta property="twitter:card" content="summary_large_image" />
 
     <script src="../lib/updateBackgroundOnMouseMove.js">
-      // https://docs.astro.build/en/guides/client-side-scripts/
+    // https://docs.astro.build/en/guides/client-side-scripts/
     </script>
   </head>
 
@@ -90,7 +92,11 @@ const TWITTER_HANDLE = "@yeiicobF"
   body {
     font-family: "Inter", sans-serif;
     /* circle at 50% 50%, */
-    background: radial-gradient(600px at 10% 15%, rgba(192, 13, 224, 0.1), transparent 80%)
+    background: radial-gradient(
+      600px at 10% 15%,
+      rgba(192, 13, 224, 0.1),
+      transparent 80%
+    );
     /* animation: wave 1s infinite alternate; */
   }
   /* @keyframes wave {
