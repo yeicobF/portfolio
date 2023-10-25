@@ -1,15 +1,12 @@
 ---
-const { href, target, isWavy } = Astro.props
+const { href, target } = Astro.props
 
 const rel = target === "_blank" ? "noopener noreferrer" : null
 ---
 
 <a
   href={href}
-  class:list={[
-    "underline text-[#E5C600] hover:text-[#F6EDAF]",
-    isWavy && "decoration-wavy",
-  ]}
+  class="text-blue-300 hover:text-blue-100"
   target={target}
   rel={rel}
 >
