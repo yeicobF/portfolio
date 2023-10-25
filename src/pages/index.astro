@@ -6,19 +6,25 @@ import studevsTalk from "@/assets/images/studevs-talk.jpeg"
 ---
 
 <Layout>
-  <section class="my-auto flex flex-col gap-16 items-center mt-16">
-    <header class="w-full mx-auto">
-      <h1 class="text-7xl font-black">Jacob Flores</h1>
-      <p class="text-2xl">
-        <strong>Technology Manager</strong> at
-        <Link href="https://www.aiapartner.com/" target="_blank" isWavy>
-          <strong> AIA Partners</strong>
-        </Link>
-      </p>
-    </header>
+  <section class="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-16 my-auto">
+    <div class="flex flex-col gap-8 text-lg">
+      <header class="w-full mx-auto">
+        <h1 class="text-7xl font-black text-blue-400 hover:text-blue-200">
+          <a
+            href="https://www.linkedin.com/in/jacob--flores/"
+            target="_blank"
+            rel="noopener noreferrer">Jacob Flores</a
+          >
+        </h1>
+        <p class="text-2xl">
+          <strong>Technology Manager</strong> at
+          <Link href="https://www.aiapartner.com/" target="_blank">
+            <strong> AIA Partners</strong>
+          </Link>
+        </p>
+      </header>
 
-    <section class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-      <div class="flex flex-col gap-8 text-lg">
+      <div class="flex flex-col gap-4">
         <p>
           Hi there! I'm Jacob and
           <strong> I'm passionate about web development and technology</strong>.
@@ -30,20 +36,20 @@ import studevsTalk from "@/assets/images/studevs-talk.jpeg"
           of a community known as
           <Link href="https://www.linkedin.com/company/studevs" target="_blank">
             <strong>Studevs</strong>
-          </Link>
-           .
-        </p>
-        <p>
-          I'm very excited about this stage of my life and professional career,
-          as I continue to experiment and learn from the people around me!
+          </Link>.
         </p>
       </div>
-      <Image src={studevsTalk} alt="Delivering a presentation at the Engineering Faculty Auditorium, Autonomum University of San Luis Potosí." quality="max" class="aspect-video object-cover h-full rounded-2xl object-left-bottom" />
-    </section>
+    </div>
+    <Image
+      src={studevsTalk}
+      alt="Delivering a presentation at the Engineering Faculty Auditorium, Autonomum University of San Luis Potosí."
+      quality="max"
+      class="aspect-video object-cover h-full rounded-xl object-left-bottom brightness-110"
+    />
   </section>
 
   <style>
-    h1 {
+    /* h1 {
       background: var(
         --secondary-gradient,
         linear-gradient(180deg, #f6edaf 0%, #e5c600 100%)
@@ -51,7 +57,7 @@ import studevsTalk from "@/assets/images/studevs-talk.jpeg"
       background-clip: text;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-    }
+    } */
     .astro-a {
       position: absolute;
       top: -32px;
