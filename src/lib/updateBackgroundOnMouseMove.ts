@@ -11,7 +11,7 @@ const updateBackgroundOnMouseMove = (event: MouseEvent): void => {
 
   // const ORIGINAL_GRADIENT =
   //   "radial-gradient(800px at 10% 15%, rgba(192, 13, 224, 0.05), transparent 80%)"
-  const trackingGradient = `radial-gradient(600px at ${x}% ${y}%, rgba(192, 13, 224, 0.1), transparent 80%)`
+  const trackingGradient = `radial-gradient(600px at ${x}% ${y}%, rgba(0, 76, 255, 0.1), transparent 80%)`
 
   // Actualiza el fondo con las coordenadas calculadas.
   body.style.background = trackingGradient
