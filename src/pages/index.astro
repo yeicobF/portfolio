@@ -14,14 +14,19 @@ const optimizedBackgroundImage = await getImage({
 
 const gradient =
   "linear-gradient(180deg, rgba(0, 0, 0, 0.38) 0%, rgba(11, 7, 24, 0.77) 45.83%, rgba(11, 7, 25, 0.82) 58.85%, #0b0b0b 80.73%)"
+const reversedGradient =
+  "linear-gradient(180deg, rgba(0, 0, 0, 0.38) 0%, rgba(11, 7, 24, 0.77) 45.83%, rgba(11, 7, 25, 0.82) 58.85%, #0b0b0b 80.73%)"
 const backgroundImage = `url('${optimizedBackgroundImage.src}')`
 ---
 
 <Layout>
   <section
-    class="main-section w-full top-0 min-h-screen z-0 bg-cover bg-center bg-no-repeat bg-fixed flex items-center justify-center pt-20 sm pb-16 flex-col gap-24"
+    class="main-section w-full top-0 min-h-screen z-0 bg-cover bg-center bg-no-repeat flex items-center pt-20"
+    style={`background-image: ${gradient}, ${backgroundImage}`}
   >
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-16">
+    <Container
+      class="flex flex-col gap-12 justify-center md:items-center h-full max-w-3xl"
+    >
       <div class="flex flex-col gap-8 text-lg">
         <header class="w-full mx-auto">
           <h1 class="text-7xl font-black text-blue-400">Jacob Flores</h1>
@@ -32,39 +37,37 @@ const backgroundImage = `url('${optimizedBackgroundImage.src}')`
             </Link>
           </p>
         </header>
-        <div class="flex flex-col gap-4">
-          <p>
-            Hi there! I'm Jacob and
-            <strong>
-              I'm passionate about web development and technology</strong
-            >.
-          </p>
-          <p>
-            I love being part of a community, sharing my knowledge, and learning
-            from others. Lately, I've participated in <strong>hackathons</strong
-            >
-             and <strong> given talks to my university peers</strong>, being
-            part of a community known as
-            <Link
-              href="https://www.linkedin.com/company/studevs"
-              target="_blank"
-            >
-              <strong>Studevs</strong>
-            </Link>.
-          </p>
-        </div>
-        <SocialMedia class="xl:hidden" />
       </div>
-      <Image
+      <!-- <Image
         src={studevsTalk}
         alt="Delivering a presentation at the Engineering Faculty Auditorium, Autonomum University of San Luis Potosí."
         quality="max"
         class="aspect-video object-cover h-full rounded-xl object-left-bottom brightness-110"
-      />
-    </div>
-
-    <SocialMedia class="hidden xl:flex" />
+      /> -->
+      <SocialMedia />
+    </Container>
   </section>
+  <Container
+    class="py-16 max-w-2xl"
+    style={`background-image: ${reversedGradient}`}
+  >
+    <section class="flex flex-col gap-4">
+      <h1 class="text-6xl font-black text-blue-300">About Me</h1>
+      <p>
+        Hi there! I'm Jacob and
+        <strong> I'm passionate about web development and technology</strong>.
+      </p>
+      <p>
+        I love being part of a community, sharing my knowledge, and learning
+        from others. Lately, I've participated in <strong>hackathons</strong>
+         and <strong> given talks to my university peers</strong>, being part of
+        a community known as
+        <Link href="https://www.linkedin.com/company/studevs" target="_blank">
+          <strong>Studevs</strong>
+        </Link>.
+      </p>
+    </section>
+  </Container>
 
   <style>
     /* Main swction should have a background image with shadow */
