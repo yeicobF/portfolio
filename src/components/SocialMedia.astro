@@ -4,7 +4,7 @@ import EmailLogo from "@/icons/Email.astro"
 import LinkedInLogo from "@/icons/LinkedIn.astro"
 
 // https://docs.astro.build/en/guides/styling/#passing-a-class-to-a-child-component
-const { class: className, ...rest } = Astro.props
+const { class: className } = Astro.props
 
 const SOCIAL_MEDIA = [
   {
@@ -30,7 +30,6 @@ const SOCIAL_MEDIA = [
     "flex items-center gap-8 w-full justify-start xl:justify-center",
     className,
   ]}
-  {...rest}
 >
   {
     SOCIAL_MEDIA.map(({ url, name, icon: Icon }) => (
@@ -38,7 +37,7 @@ const SOCIAL_MEDIA = [
         href={url}
         target="_blank"
         rel="noopener noreferrer"
-        class="text-white w-8 h-8 hover:text-gray-400 transition-colors duration-200"
+        class="text-white w-8 h-8 hover:text-sky-400 transition-colors duration-200"
         aria-label={name}
       >
         <Icon />
