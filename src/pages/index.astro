@@ -3,43 +3,53 @@ import { Image } from "astro:assets"
 import Layout from "@/layouts/Layout.astro"
 import Link from "@/components/Link.astro"
 import studevsTalk from "@/assets/images/studevs-talk.jpeg"
+import SocialMedia from "@/components/SocialMedia.astro"
 ---
 
 <Layout>
-  <section class="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-16 my-auto">
-    <div class="flex flex-col gap-8 text-lg">
-      <header class="w-full mx-auto">
-        <h1 class="text-7xl font-black text-blue-400">Jacob Flores</h1>
-        <p class="text-2xl">
-          <strong>Technology Manager</strong> at
-          <Link href="https://www.aiapartner.com/" target="_blank">
-            <strong> AIA Partners</strong>
-          </Link>
-        </p>
-      </header>
+  <section class="flex flex-col gap-24 h-full justify-between">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-16 my-auto">
+      <div class="flex flex-col gap-8 text-lg">
+        <header class="w-full mx-auto">
+          <h1 class="text-7xl font-black text-blue-400">Jacob Flores</h1>
+          <p class="text-2xl">
+            <strong>Technology Manager</strong> at
+            <Link href="https://www.aiapartner.com/" target="_blank">
+              <strong> AIA Partners</strong>
+            </Link>
+          </p>
+        </header>
+        <div class="flex flex-col gap-4">
+          <p>
+            Hi there! I'm Jacob and
+            <strong>
+              I'm passionate about web development and technology</strong
+            >.
+          </p>
+          <p>
+            I love being part of a community, sharing my knowledge, and learning
+            from others. Lately, I've participated in <strong>hackathons</strong
+            >
+             and <strong> given talks to my university peers</strong>, being
+            part of a community known as
+            <Link
+              href="https://www.linkedin.com/company/studevs"
+              target="_blank"
+            >
+              <strong>Studevs</strong>
+            </Link>.
+          </p>
+        </div>
+    <SocialMedia />
 
-      <div class="flex flex-col gap-4">
-        <p>
-          Hi there! I'm Jacob and
-          <strong> I'm passionate about web development and technology</strong>.
-        </p>
-        <p>
-          I love being part of a community, sharing my knowledge, and learning
-          from others. Lately, I've participated in <strong>hackathons</strong>
-           and <strong> given talks to my university peers</strong>, being part
-          of a community known as
-          <Link href="https://www.linkedin.com/company/studevs" target="_blank">
-            <strong>Studevs</strong>
-          </Link>.
-        </p>
       </div>
+      <Image
+        src={studevsTalk}
+        alt="Delivering a presentation at the Engineering Faculty Auditorium, Autonomum University of San Luis Potosí."
+        quality="max"
+        class="aspect-video object-cover h-full rounded-xl object-left-bottom brightness-110"
+      />
     </div>
-    <Image
-      src={studevsTalk}
-      alt="Delivering a presentation at the Engineering Faculty Auditorium, Autonomum University of San Luis Potosí."
-      quality="max"
-      class="aspect-video object-cover h-full rounded-xl object-left-bottom brightness-110"
-    />
   </section>
 
   <style>

@@ -1,0 +1,42 @@
+---
+import GitHubLogo from "@/icons/GitHub.astro"
+import EmailLogo from "@/icons/Email.astro"
+import LinkedInLogo from "@/icons/LinkedIn.astro"
+
+const SOCIAL_MEDIA = [
+  {
+    name: "LinkedIn",
+    url: "https://www.linkedin.com/in/jacob--flores",
+    icon: LinkedInLogo,
+  },
+  {
+    name: "GitHub",
+    url: "https://github.com/yeicobF",
+    icon: GitHubLogo,
+  },
+  {
+    name: "Email",
+    url: "mailto:jacobfloresrdz@gmail.com",
+    icon: EmailLogo,
+  },
+]
+---
+
+<footer class="flex items-center gap-8 w-full justify-center">
+  {
+    SOCIAL_MEDIA.map(({ url, name, icon: Icon }) => (
+      <a
+        href={url}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="text-white hover:text-sky-300 w-9 h-9"
+        aria-label={name}
+      >
+        <Icon />
+      </a>
+    ))
+  }
+</footer>
+<!-- <div class="mt-2 text-sm text-gray-500">
+  <span>© {new Date().getFullYear()} Jacob Flores</span>
+</div> -->
