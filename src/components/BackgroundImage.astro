@@ -1,0 +1,19 @@
+---
+import { Image } from "astro:assets"
+import studevsTalk from "@/assets/images/studevs-talk.jpeg"
+---
+
+<div class="absolute w-full h-full bg-fixed">
+  <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent">
+  </div>
+  <div class="absolute inset-0">
+    <Image
+      src={studevsTalk}
+      alt="Delivering a presentation at the Engineering Faculty Auditorium, Autonomum University of San Luis Potosí."
+      quality="max"
+      class="object-cover h-full w-full rounded-xl object-left-bottom brightness-110"
+    />
+  </div>
+  <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent">
+  </div>
+</div>
