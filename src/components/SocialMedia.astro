@@ -3,6 +3,9 @@ import GitHubLogo from "@/icons/GitHub.astro"
 import EmailLogo from "@/icons/Email.astro"
 import LinkedInLogo from "@/icons/LinkedIn.astro"
 
+// https://docs.astro.build/en/guides/styling/#passing-a-class-to-a-child-component
+const { class: className, ...rest } = Astro.props
+
 const SOCIAL_MEDIA = [
   {
     name: "LinkedIn",
@@ -20,9 +23,14 @@ const SOCIAL_MEDIA = [
     icon: EmailLogo,
   },
 ]
+
+console.log({ className })
 ---
 
-<footer class="flex items-center gap-8 w-full justify-center">
+<footer
+  class:list={["flex items-center gap-8 w-full justify-center", className]}
+  {...rest}
+>
   {
     SOCIAL_MEDIA.map(({ url, name, icon: Icon }) => (
       <a

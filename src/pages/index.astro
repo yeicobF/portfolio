@@ -40,16 +40,17 @@ import SocialMedia from "@/components/SocialMedia.astro"
             </Link>.
           </p>
         </div>
-        
+        <SocialMedia class="xl:hidden" />
       </div>
       <Image
-      src={studevsTalk}
-      alt="Delivering a presentation at the Engineering Faculty Auditorium, Autonomum University of San Luis Potosí."
-      quality="max"
-      class="aspect-video object-cover h-full rounded-xl object-left-bottom brightness-110"
+        src={studevsTalk}
+        alt="Delivering a presentation at the Engineering Faculty Auditorium, Autonomum University of San Luis Potosí."
+        quality="max"
+        class="aspect-video object-cover h-full rounded-xl object-left-bottom brightness-110"
       />
     </div>
-    <SocialMedia />
+
+    <SocialMedia class="hidden xl:flex" />
   </section>
 
   <style>
