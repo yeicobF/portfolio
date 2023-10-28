@@ -1,14 +1,27 @@
 ---
-import { Image } from "astro:assets"
+import { Image, getImage } from "astro:assets"
 import Layout from "@/layouts/Layout.astro"
 import Link from "@/components/Link.astro"
-import studevsTalk from "@/assets/images/studevs-talk.jpeg"
+import studevsTalk from "@/assets/images/studevs-talk.png"
 import SocialMedia from "@/components/SocialMedia.astro"
+import Container from "@/components/Container.astro"
+
+// https://astro.build/blog/images/
+const optimizedBackgroundImage = await getImage({
+  src: studevsTalk,
+  quality: "max",
+})
+
+const gradient =
+  "linear-gradient(180deg, rgba(0, 0, 0, 0.38) 0%, rgba(11, 7, 24, 0.77) 45.83%, rgba(11, 7, 25, 0.82) 58.85%, #0b0b0b 80.73%)"
+const backgroundImage = `url('${optimizedBackgroundImage.src}')`
 ---
 
 <Layout>
-  <section class="flex flex-col gap-24 h-full justify-between">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-16 my-auto">
+  <section
+    class="main-section w-full top-0 min-h-screen z-0 bg-cover bg-center bg-no-repeat bg-fixed flex items-center justify-center pt-20 sm pb-16 flex-col gap-24"
+  >
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-16">
       <div class="flex flex-col gap-8 text-lg">
         <header class="w-full mx-auto">
           <h1 class="text-7xl font-black text-blue-400">Jacob Flores</h1>
@@ -54,6 +67,7 @@ import SocialMedia from "@/components/SocialMedia.astro"
   </section>
 
   <style>
+    /* Main swction should have a background image with shadow */
     /* h1 {
       background: var(
         --secondary-gradient,
