@@ -58,17 +58,15 @@ const TWITTER_HANDLE = "@yeiicobF"
     <meta property="twitter:creator" content={TWITTER_HANDLE} />
     <meta property="twitter:card" content="summary_large_image" />
 
-    <script src="../lib/updateBackgroundOnMouseMove.js">
+    <!-- <script src="../lib/updateBackgroundOnMouseMove.js">
     // https://docs.astro.build/en/guides/client-side-scripts/
-    </script>
+    </script> -->
   </head>
 
   <body class="min-h-screen relative">
     <Header />
     <div class="flex flex-col items-center h-full">
-      <Container>
-        <slot />
-      </Container>
+      <slot />
     </div>
   </body>
 </html>
