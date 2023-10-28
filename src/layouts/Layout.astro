@@ -63,12 +63,10 @@ const TWITTER_HANDLE = "@yeiicobF"
   </head>
 
   <body class="min-h-screen pt-8 pb-32 flex flex-col items-center">
-    <div class="max-w-6xl w-full px-4 md:px-16 m-auto h-full">
-      <Header />
-      <main>
-        <slot />
-      </main>
-    </div>
+    <Header />
+    <main class="max-w-6xl w-full px-4 md:px-16 m-auto h-full">
+      <slot />
+    </main>
   </body>
 </html>
 <style is:global>
