@@ -2,6 +2,7 @@
 import "@fontsource-variable/inter"
 import Header from "@/components/Header.astro"
 import socialImageUrl from "@/assets/images/og-preview.png"
+import Container from "@/components/Container.astro"
 
 interface Props {
   title?: string
@@ -62,11 +63,13 @@ const TWITTER_HANDLE = "@yeiicobF"
     </script>
   </head>
 
-  <body class="min-h-screen pt-8 pb-32 flex flex-col items-center">
+  <body class="min-h-screen relative">
     <Header />
-    <main class="max-w-6xl w-full px-4 md:px-16 m-auto h-full">
-      <slot />
-    </main>
+    <div class="flex flex-col items-center h-full">
+      <Container>
+        <slot />
+      </Container>
+    </div>
   </body>
 </html>
 <style is:global>
