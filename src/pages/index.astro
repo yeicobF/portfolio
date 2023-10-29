@@ -16,14 +16,19 @@ const ME = {
   },
 }
 
-const gradient =
-  "linear-gradient(180deg, rgba(0, 0, 0, 0.38) 0%, rgba(11, 7, 24, 0.77) 45.83%, rgba(11, 7, 25, 0.82) 58.85%, #0b0b0b 80.73%)"
-const reversedGradient =
-  "linear-gradient(180deg, #0b0b0b 0%, rgba(11, 7, 25, 0.82) 19.27%, rgba(11, 7, 24, 0.77) 41.15%, #0b0b0b 100%)"
+const GRADIENTS = {
+  original:
+    "linear-gradient(180deg, rgba(0, 0, 0, 0.38) 0%, rgba(11, 7, 24, 0.77) 45.83%, rgba(11, 7, 25, 0.82) 58.85%, #0b0b0b 80.73%)",
+  reversed:
+    "linear-gradient(180deg, #0b0b0b 0%, rgba(11, 7, 25, 0.82) 19.27%, rgba(11, 7, 24, 0.77) 41.15%, #0b0b0b 100%)",
+}
 ---
 
 <Layout>
-  <FullScreenSection gradient={gradient} backgroundImage={studevsTalk}>
+  <FullScreenSection
+    gradient={GRADIENTS.original}
+    backgroundImage={studevsTalk}
+  >
     <Container
       class="flex flex-col gap-4 md:gap-12 justify-center md:items-center h-full max-w-3xl"
     >
@@ -55,7 +60,7 @@ const reversedGradient =
     </Container>
   </FullScreenSection>
 
-  <FullScreenSection gradient={reversedGradient}>
+  <FullScreenSection gradient={GRADIENTS.reversed}>
     <Container class="pb-16">
       <section class="flex flex-col gap-4">
         <h1 class="text-6xl font-black text-blue-300">About Me</h1>
