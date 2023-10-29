@@ -6,6 +6,15 @@ import studevsTalk from "@/assets/images/studevs-talk.png"
 import SocialMedia from "@/components/SocialMedia.astro"
 import Container from "@/components/Container.astro"
 
+const ME = {
+  name: "Jacob Flores",
+  role: "Frontend Developer",
+  company: {
+    name: "AIA Partners",
+    web: "https://www.aiapartner.com/",
+  },
+}
+
 // https://astro.build/blog/images/
 const optimizedBackgroundImage = await getImage({
   src: studevsTalk,
@@ -25,16 +34,23 @@ const backgroundImage = `url('${optimizedBackgroundImage.src}')`
     style={`background-image: ${gradient}, ${backgroundImage}`}
   >
     <Container
-      class="flex flex-col gap-12 justify-center md:items-center h-full max-w-3xl"
+      class="flex flex-col gap-4 md:gap-12 justify-center md:items-center h-full max-w-3xl"
     >
-      <div class="flex flex-col gap-8 text-lg">
-        <header class="w-full mx-auto">
+      <div class="flex flex-col gap-8 text-lg md:items-center">
+        <header class="w-full mx-auto flex md:items-center flex-col">
           <h1 class="text-7xl font-black text-blue-400">Jacob Flores</h1>
-          <p class="text-2xl">
-            <strong>Technology Manager</strong> at
-            <Link href="https://www.aiapartner.com/" target="_blank">
-              <strong> AIA Partners</strong>
-            </Link>
+          <p class="text-2xl w-fit">
+            <strong>{ME.role}</strong>
+            {
+              ME.company?.name && (
+                <>
+                  at
+                  <Link href={ME.company.web} target="_blank">
+                    <strong> {ME.company.name}</strong>
+                  </Link>
+                </>
+              )
+            }
           </p>
         </header>
       </div>
