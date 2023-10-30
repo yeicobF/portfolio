@@ -1,11 +1,16 @@
 ---
 import Logo from "@/components/Logo.astro"
 
-const SECTIONS = [
+type Section = {
+  name: string
+  url: string
+  display?: boolean
+}
+
+const SECTIONS: Array<Section> = [
   {
     name: "About",
     url: "#about",
-    display: true,
   },
   {
     name: "Experience",
@@ -18,14 +23,14 @@ const SECTIONS = [
 ]
 ---
 
-<header class="w-full absolute sm:fixed top-0 z-50 py-4 md:py-8">
+<header class="w-full absolute sm:fixed top-0 z-50 py-4 md:py-4">
   <nav class="px-6 w-full max-w-7xl
 md:px-20 mx-auto justify-between flex gap-8">
-    <a href="/#" class="text-3xl lg:text-4xl">
+    <a href="/#" class="text-3xl">
       <Logo />
     </a>
 
-    <ul class="hidden md:flex items-center gap-8">
+    <ul class="hidden md:flex items-center gap-8 text-sm">
       {
         SECTIONS.map(
           ({ url, name, display }) =>
