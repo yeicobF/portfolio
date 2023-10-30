@@ -5,10 +5,14 @@ import Container from "../Container.astro"
 import Link from "../Link.astro"
 import { Image } from "astro:assets"
 import solanaHackathonImg from "@/assets/images/solana-23/collage-transparent.png"
-import SectionTitle from "./SectionTitle.astro"
+import SectionTitle from "@/components/SectionTitle.astro"
 ---
 
-<FullScreenSection gradient={GRADIENTS.reversed} class="items-center">
+<FullScreenSection
+  gradient={GRADIENTS.reversed}
+  class="items-center"
+  id="about"
+>
   <Container
     class="flex flex-col lg:grid lg:grid-cols-2 lg:gap-16 gap-4 sticky bottom-20"
   >
@@ -23,10 +27,7 @@ import SectionTitle from "./SectionTitle.astro"
         from others. Lately, I've participated in <strong>hackathons</strong>
          and <strong> given talks to my university peers</strong>, being part of
         a community known as
-        <Link 
-          href="https://www.linkedin.com/company/studevs"
-          target="_blank"
-        >Studevs</Link>.
+        <Link href="https://www.linkedin.com/company/studevs" target="_blank">Studevs</Link>.
       </p>
     </div>
     <Image
