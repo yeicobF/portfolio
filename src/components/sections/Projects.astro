@@ -27,10 +27,19 @@ const PROJECTS = [
 ]
 ---
 
-<FullScreenSection id="projects">
-  <div class="flex flex-col gap-4">
-    <SectionTitle>Projects</SectionTitle>
+<FullScreenSection id="projects" class="flex flex-col gap-8">
+  <SectionTitle class="text-center">Projects</SectionTitle>
 
-  
+  <div class="grid sm:grid-cols-2 gap-8">
+    {
+      PROJECTS.map(({ name, description, link, design, image, tech }) => {
+        // style="background: conic-gradient(from 180deg at 50% 50%, #1A1A1A 129.19544219970703deg, rgba(26, 26, 26, 0.00) 306.6383099555969deg)"
+        return (
+          <article class="rounded-md w-full p-8 ">
+            <h3 class="text-xl font-semibold">{name}</h3>
+          </article>
+        )
+      })
+    }
   </div>
 </FullScreenSection>
