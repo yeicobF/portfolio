@@ -2,16 +2,17 @@
 interface Props {
   href: string
   target?: string
+  class?: string
 }
 
-const { href, target } = Astro.props
+const { href, target, class: className } = Astro.props
 
 const rel = target === "_blank" ? "noopener noreferrer" : null
 ---
 
 <a
   href={href}
-  class="text-blue-300 hover:text-blue-100 font-semibold"
+  class:list={["text-blue-300 hover:text-blue-100 font-semibold", className]}
   target={target}
   rel={rel}
 >
