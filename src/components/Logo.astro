@@ -1,8 +1,10 @@
 ---
 import "@fontsource/send-flowers"
+
+const { class: className } = Astro.props
 ---
 
-<span>jf</span>
+<span class={className}>jf</span>
 
 <style>
   span {
