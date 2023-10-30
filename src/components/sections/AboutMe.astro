@@ -5,6 +5,7 @@ import Container from "../Container.astro"
 import Link from "../Link.astro"
 import { Image } from "astro:assets"
 import solanaHackathonImg from "@/assets/images/solana-23/collage-transparent.png"
+import SectionTitle from "./SectionTitle.astro"
 ---
 
 <FullScreenSection gradient={GRADIENTS.reversed} class="items-center">
@@ -12,7 +13,7 @@ import solanaHackathonImg from "@/assets/images/solana-23/collage-transparent.pn
     class="flex flex-col lg:grid lg:grid-cols-2 lg:gap-16 gap-4 sticky bottom-20"
   >
     <div class="flex flex-col gap-4">
-      <h2 class="text-8xl font-black text-blue-300">About Me</h2>
+      <SectionTitle>About Me</SectionTitle>
       <p>
         Hi there! I'm Jacob and
         <strong> I'm passionate about web development and technology</strong>.
