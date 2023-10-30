@@ -1,6 +1,7 @@
 ---
 import type { ImageMetadata } from "astro"
 import { getImage } from "astro:assets"
+import Container from "./Container.astro"
 
 interface Props {
   backgroundImage?: ImageMetadata
@@ -32,12 +33,16 @@ const bgImg = [gradient, image].filter(Boolean).join(", ")
 ---
 
 <Element
-  class:list={[
-    "main-section w-full top-0 min-h-screen z-0 bg-cover bg-center bg-no-repeat flex h-full",
-    className,
-  ]}
+  class="w-full top-0 min-h-screen z-0 bg-cover bg-center bg-no-repeat flex h-full items-center"
   style={`background-image: ${bgImg}`}
   {...restProps}
 >
-  <slot />
+  <Container
+    class:list={[
+      "flex flex-col gap-4 sticky bottom-20",
+      className,
+    ]}
+  >
+    <slot />
+  </Container>
 </Element>

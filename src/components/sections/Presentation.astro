@@ -1,6 +1,5 @@
 ---
 import { GRADIENTS, ME } from "@/consts"
-import Container from "@/components/Container.astro"
 import FullScreenSection from "@/components/FullScreenSection.astro"
 import Link from "@/components/Link.astro"
 import SocialMedia from "@/components/SocialMedia.astro"
@@ -10,37 +9,33 @@ import studevsTalk from "@/assets/images/studevs-talk.png"
 <FullScreenSection
   gradient={GRADIENTS.original}
   backgroundImage={studevsTalk}
-  class="items-center"
   element="main"
   id="home"
+  class="md:gap-12 justify-center md:items-center h-full"
 >
-  <Container
-    class="flex flex-col gap-4 md:gap-12 justify-center md:items-center h-full max-w-3xl"
-  >
-    <div class="flex flex-col gap-8 text-lg md:items-center">
-      <header class="w-full mx-auto flex md:items-center flex-col">
-        <h1 class="text-8xl font-black text-blue-400">Jacob Flores</h1>
-        <p class="text-4xl w-fit">
-          <strong>{ME.role}</strong>
-          {
-            ME.company?.name && (
-              <>
-                at
-                <Link href={ME.company.web} target="_blank">
-                  <strong> {ME.company.name}</strong>
-                </Link>
-              </>
-            )
-          }
-        </p>
-      </header>
-    </div>
-    <!-- <Image
-        src={studevsTalk}
-        alt="Delivering a presentation at the Engineering Faculty Auditorium, Autonomum University of San Luis Potosí."
-        quality="max"
-        class="aspect-video object-cover h-full rounded-xl object-left-bottom brightness-110"
-      /> -->
-    <SocialMedia class="justify-start md:justify-center w-full" size="md" />
-  </Container>
+  <div class="flex flex-col gap-8 text-lg md:items-center">
+    <header class="w-full mx-auto flex md:items-center flex-col">
+      <h1 class="text-8xl font-black text-blue-400">Jacob Flores</h1>
+      <p class="text-4xl w-fit">
+        <strong>{ME.role}</strong>
+        {
+          ME.company?.name && (
+            <>
+              at
+              <Link href={ME.company.web} target="_blank">
+                <strong> {ME.company.name}</strong>
+              </Link>
+            </>
+          )
+        }
+      </p>
+    </header>
+  </div>
+  <!-- <Image
+      src={studevsTalk}
+      alt="Delivering a presentation at the Engineering Faculty Auditorium, Autonomum University of San Luis Potosí."
+      quality="max"
+      class="aspect-video object-cover h-full rounded-xl object-left-bottom brightness-110"
+    /> -->
+  <SocialMedia class="justify-start md:justify-center w-full" size="md" />
 </FullScreenSection>
