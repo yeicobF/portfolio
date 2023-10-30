@@ -3,6 +3,8 @@ import { GRADIENTS } from "@/consts"
 import FullScreenSection from "../FullScreenSection.astro"
 import Container from "../Container.astro"
 import Link from "../Link.astro"
+import { Image } from "astro:assets"
+import solanaHackathonImg from "@/assets/images/solana-23/collage.png"
 ---
 
 <FullScreenSection gradient={GRADIENTS.reversed} class="items-center">
@@ -21,5 +23,11 @@ import Link from "../Link.astro"
         <strong>Studevs</strong>
       </Link>.
     </p>
+    <Image
+      src={solanaHackathonImg}
+      alt="Delivering a presentation at the Engineering Faculty Auditorium, Autonomum University of San Luis Potosí."
+      quality="max"
+      class="aspect-video object-cover h-full rounded-xl object-left-bottom brightness-110"
+    />
   </Container>
 </FullScreenSection>
