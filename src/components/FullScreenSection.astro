@@ -7,6 +7,7 @@ interface Props {
   gradient?: string
   class?: string
   element?: "section" | "div" | "main"
+  id?: string
 }
 
 const {
@@ -14,6 +15,7 @@ const {
   gradient,
   element: Element = "section",
   class: className,
+  ...restProps
 } = Astro.props
 
 // https://astro.build/blog/images/
@@ -35,6 +37,7 @@ const bgImg = [gradient, image].filter(Boolean).join(", ")
     className,
   ]}
   style={`background-image: ${bgImg}`}
+  {...restProps}
 >
   <slot />
 </Element>
