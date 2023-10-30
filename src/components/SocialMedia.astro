@@ -3,8 +3,19 @@ import GitHubLogo from "@/icons/GitHub.astro"
 import EmailLogo from "@/icons/Email.astro"
 import LinkedInLogo from "@/icons/LinkedIn.astro"
 
+interface Props {
+  size?: "sm" | "md" | "lg"
+  class?: string
+}
+
 // https://docs.astro.build/en/guides/styling/#passing-a-class-to-a-child-component
-const { class: className } = Astro.props
+const { size = "sm", class: className } = Astro.props
+
+const sizes = {
+  sm: "w-5 h-5",
+  md: "w-8 h-8",
+  lg: "w-12 h-12",
+}
 
 const SOCIAL_MEDIA = [
   {
@@ -25,26 +36,24 @@ const SOCIAL_MEDIA = [
 ]
 ---
 
-<footer
-  class:list={[
-    "flex items-center gap-8 w-full justify-start md:justify-center",
-    className,
-  ]}
->
+<section class:list={["flex items-center gap-8", className]}>
   {
     SOCIAL_MEDIA.map(({ url, name, icon: Icon }) => (
       <a
         href={url}
         target="_blank"
         rel="noopener noreferrer"
-        class="text-white w-8 h-8 hover:text-sky-400 transition-colors duration-200"
+        class:list={[
+          "text-white w-8 h-8 hover:text-sky-400 transition-colors duration-200",
+          sizes[size],
+        ]}
         aria-label={name}
       >
         <Icon />
       </a>
     ))
   }
-</footer>
+</section>
 <!-- <div class="mt-32 text-sm text-gray-500">
   <span>© {new Date().getFullYear()} Jacob Flores</span>
 </div> -->
