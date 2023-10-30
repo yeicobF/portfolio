@@ -12,7 +12,7 @@ interface Props {
 const { size = "sm", class: className } = Astro.props
 
 const sizes = {
-  sm: "w-5 h-5",
+  sm: "w-6 h-6",
   md: "w-8 h-8",
   lg: "w-12 h-12",
 }
@@ -44,7 +44,7 @@ const SOCIAL_MEDIA = [
         target="_blank"
         rel="noopener noreferrer"
         class:list={[
-          "text-white w-8 h-8 hover:text-sky-400 transition-colors duration-200",
+          "text-white hover:text-sky-400 transition-colors duration-200",
           sizes[size],
         ]}
         aria-label={name}
