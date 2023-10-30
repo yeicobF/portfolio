@@ -6,9 +6,15 @@ interface Props {
   backgroundImage?: ImageMetadata
   gradient?: string
   class?: string
+  element?: "section" | "div" | "main"
 }
 
-const { backgroundImage, gradient, class: className } = Astro.props
+const {
+  backgroundImage,
+  gradient,
+  element: Element = "section",
+  class: className,
+} = Astro.props
 
 // https://astro.build/blog/images/
 const optimizedBackgroundImage =
@@ -23,7 +29,7 @@ const image = `url('${optimizedBackgroundImage?.src}')`
 const bgImg = [gradient, image].filter(Boolean).join(", ")
 ---
 
-<section
+<Element
   class:list={[
     "main-section w-full top-0 min-h-screen z-0 bg-cover bg-center bg-no-repeat flex h-full",
     className,
@@ -31,4 +37,4 @@ const bgImg = [gradient, image].filter(Boolean).join(", ")
   style={`background-image: ${bgImg}`}
 >
   <slot />
-</section>
+</Element>
