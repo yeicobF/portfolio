@@ -1,0 +1,25 @@
+---
+import { GRADIENTS } from "@/consts"
+import FullScreenSection from "./FullScreenSection.astro"
+import Container from "./Container.astro"
+import Link from "./Link.astro"
+---
+
+<FullScreenSection gradient={GRADIENTS.reversed} class="items-center">
+  <Container class="flex flex-col gap-4 sticky bottom-10">
+    <h1 class="text-6xl font-black text-blue-300">About Me</h1>
+    <p>
+      Hi there! I'm Jacob and
+      <strong> I'm passionate about web development and technology</strong>.
+    </p>
+    <p>
+      I love being part of a community, sharing my knowledge, and learning from
+      others. Lately, I've participated in <strong>hackathons</strong>
+       and <strong> given talks to my university peers</strong>, being part of a
+      community known as
+      <Link href="https://www.linkedin.com/company/studevs" target="_blank">
+        <strong>Studevs</strong>
+      </Link>.
+    </p>
+  </Container>
+</FullScreenSection>
