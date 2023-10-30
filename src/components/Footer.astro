@@ -1,4 +1,5 @@
 ---
+import Link from "./Link.astro"
 import Logo from "./Logo.astro"
 import SocialMedia from "./SocialMedia.astro"
 ---
@@ -13,9 +14,13 @@ md:px-20 mx-auto"
     <a href="/">
       <Logo class="text-3xl" />
     </a>
-    <p class="text-slate-400">
-      Designed and Built by <strong>Jacob Flores</strong>
-    </p>
+    <div class="text-slate-400">
+      Built with <Link target="_blank" href="https://astro.build/">Astro</Link>
+       and
+      <Link target="_blank" href="https://tailwindcss.com/">Tailwind CSS</Link>.
+      Hosted on
+      <Link target="_blank" href="https://vercel.com/">Vercel</Link>.
+    </div>
   </div>
   <SocialMedia />
 </footer>
