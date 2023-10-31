@@ -9,7 +9,17 @@ import nourishImg from "@/assets/images/projects/nourish.png"
 import SectionTitle from "@/components/SectionTitle.astro"
 import Web from "@/icons/Web.astro"
 
-const PROJECTS = [
+type Project = {
+  name: string
+  description: string
+  link: string
+  repo?: string
+  design?: string
+  image: ImageMetadata
+  tech: string[]
+}
+
+const PROJECTS: Array<Project> = [
   {
     name: "Ecotide",
     description:
@@ -32,6 +42,26 @@ const PROJECTS = [
     tech: ["Next.js", "Tailwind CSS", "Firebase", "OpenAI API"],
   },
 ]
+
+const getProjectLinks = ({ link, repo, design }: Project) => {
+  return [
+    {
+      icon: Web,
+      href: link,
+      text: "Project",
+    },
+    {
+      icon: Figma,
+      href: design,
+      text: "Design",
+    },
+    {
+      icon: GitHub,
+      href: repo,
+      text: "Code",
+    },
+  ]
+}
 ---
 
 <FullScreenSection
@@ -42,8 +72,8 @@ const PROJECTS = [
 
   <div class="flex flex-col gap-16">
     {
-      PROJECTS.map(({ name, description, link, design, repo, image, tech }) => {
-        // style="background: conic-gradient(from 180deg at 50% 50%, #1A1A1A 129.19544219970703deg, rgba(26, 26, 26, 0.00) 306.6383099555969deg)"
+      PROJECTS.map((project) => {
+        const { name, description, link, image, tech } = project
         return (
           <article class="w-full flex flex-col md:grid md:grid-cols-2 gap-4 md:gap-8 rounded-xl">
             <Link href={link} target="_blank" class="order-1 md:order-0">
@@ -59,27 +89,18 @@ const PROJECTS = [
                 <p class="text-gray-500">{description}</p>
               </header>
               <div class="flex flex-wrap gap-x-6">
-                <Link
-                  href={link}
-                  target="_blank"
-                  class="flex text-sm h-5 gap-2 justify-items-center"
-                >
-                  <Web /> Project
-                </Link>
-                <Link
-                  href={design}
-                  target="_blank"
-                  class="flex text-sm h-5 gap-2 justify-items-center"
-                >
-                  <Figma /> Design
-                </Link>
-                <Link
-                  href={repo}
-                  target="_blank"
-                  class="flex text-sm h-5 gap-2 justify-items-center"
-                >
-                  <GitHub /> Code
-                </Link>
+                {getProjectLinks(project).map(
+                  ({ icon: Icon, href, text }) =>
+                    href && (
+                      <Link
+                        href={href}
+                        target="_blank"
+                        class="text-sm h-5 flex gap-2 justify-items-center"
+                      >
+                        <Icon /> {text}
+                      </Link>
+                    ),
+                )}
               </div>
               <div class="flex flex-wrap gap-x-2 gap-1">
                 {tech.map((tech) => (
