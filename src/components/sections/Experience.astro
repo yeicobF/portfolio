@@ -1,0 +1,107 @@
+---
+import FullScreenSection from "@/components/FullScreenSection.astro"
+import SectionTitle from "@/components/SectionTitle.astro"
+
+type Experience = {
+  role: string
+  location?: string
+  startDate?: string
+  endDate?: string
+  description: string
+  tags: string[]
+  links?: {
+    name: string
+    url: string
+  }[]
+}
+
+type Company = {
+  name: string
+  website: string
+  description?: string
+  logo?: string
+  links?: {
+    name: string
+    url: string
+  }[]
+}
+
+type ExperienceBlock = {
+  company: Company
+  experiences: Experience[]
+}
+
+const AIA_PARTNERS = {
+  name: "AIA Partners",
+  // logo: "/images/aia-partners.png",
+  website: "https://www.aiapartners.com/",
+}
+
+const EXPERIENCE: Array<ExperienceBlock> = [
+  {
+    company: AIA_PARTNERS,
+    experiences: [
+      {
+        role: "Technology Manager",
+        description:
+          "Managed a team of 5 developers to build projects according to the company's needs.",
+        startDate: "2023-06-16",
+        tags: [
+          "Leadership",
+          "Vue 3",
+          "JavaScript",
+          "CSS",
+          "Figma",
+          "Node.js",
+          "API",
+          "Git",
+        ],
+      },
+      {
+        role: "Frontend Developer",
+        description:
+          "Collaborated closely with the backend team and our Technology Manager to drive our company's vision and objectives.",
+        startDate: "2022-06-16",
+        endDate: "2023-06-16",
+        tags: ["Vue 3", "JavaScript", "CSS", "Figma", "Node.js", "API", "Git"],
+      },
+    ],
+  },
+]
+---
+
+<FullScreenSection id="experience">
+  <SectionTitle class="mx-auto w-full">Experience</SectionTitle>
+  <div class="flex flex-col gap-16">
+    {
+      EXPERIENCE.map((block) => (
+        <div class="bg-white shadow-lg rounded-lg px-4 py-5">
+          <h3 class="text-2xl font-bold text-gray-900 mb-2">
+            {block.company.name}
+          </h3>
+          <a
+            href={block.company.website}
+            class="text-indigo-500 underline mb-4 block"
+          >
+            {block.company.website}
+          </a>
+          {block.experiences.map((experience) => (
+            <div class="my-4">
+              <h4 class="text-xl font-semibold text-gray-700">
+                {experience.role}
+              </h4>
+              <p class="text-gray-600">{experience.description}</p>
+              <div class="mt-2">
+                {experience.tags.map((tag) => (
+                  <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      ))
+    }
+  </div>
+</FullScreenSection>
