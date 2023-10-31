@@ -1,5 +1,6 @@
 ---
 import { Image } from "astro:assets"
+import Badge from "@/components/Badge.astro"
 import ecotideImg from "@/assets/images/projects/ecotide.png"
 import Figma from "@/icons/Figma.astro"
 import FullScreenSection from "@/components/FullScreenSection.astro"
@@ -98,13 +99,11 @@ const getProjectLinks = ({ link, repo, design }: Project) => {
                     ),
                 )}
               </div>
-              <div class="flex flex-wrap gap-x-2 gap-1">
+              <footer class="flex flex-wrap gap-x-2 gap-1">
                 {tech.map((tech) => (
-                  <span class="text-sm text-blue-100 rounded-full bg-blue-950 py-1 px-3 font-medium">
-                    {tech}
-                  </span>
+                  <Badge>{tech}</Badge>
                 ))}
-              </div>
+              </footer>
             </div>
           </article>
         )
