@@ -9,6 +9,7 @@ import Link from "@/components/Link.astro"
 import nourishImg from "@/assets/images/projects/nourish.png"
 import SectionTitle from "@/components/SectionTitle.astro"
 import Web from "@/icons/Web.astro"
+import BadgeList from "../Badge/BadgeList.astro"
 
 type Project = {
   name: string
@@ -99,11 +100,11 @@ const getProjectLinks = ({ link, repo, design }: Project) => {
                     ),
                 )}
               </div>
-              <footer class="flex flex-wrap gap-x-2 gap-1">
+              <BadgeList>
                 {tech.map((tech) => (
                   <Badge>{tech}</Badge>
                 ))}
-              </footer>
+              </BadgeList>
             </div>
           </article>
         )

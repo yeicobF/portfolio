@@ -1,6 +1,9 @@
 ---
 import FullScreenSection from "@/components/FullScreenSection.astro"
 import SectionTitle from "@/components/SectionTitle.astro"
+import BadgeList from "../Badge/BadgeList.astro"
+import Badge from "../Badge.astro"
+import Link from "../Link.astro"
 
 type Experience = {
   role: string
@@ -75,32 +78,24 @@ const EXPERIENCE: Array<ExperienceBlock> = [
   <div class="flex flex-col gap-16">
     {
       EXPERIENCE.map((block) => (
-        <div class="bg-white shadow-lg rounded-lg px-4 py-5">
-          <h3 class="text-2xl font-bold text-gray-900 mb-2">
-            {block.company.name}
+        <article class="flex flex-col">
+          <h3 class="text-2xl font-bold  mb-2">
+            <Link href={block.company.website}>{block.company.name}</Link>
           </h3>
-          <a
-            href={block.company.website}
-            class="text-indigo-500 underline mb-4 block"
-          >
-            {block.company.website}
-          </a>
           {block.experiences.map((experience) => (
-            <div class="my-4">
-              <h4 class="text-xl font-semibold text-gray-700">
+            <section class="ml-2 pb-4 pl-2 border-l-2 border-slate-500 border-opacity-75 flex flex-col gap-2 [text-wrap:balance]">
+              <h4 class="text-xl font-semibold text-blue-100">
                 {experience.role}
               </h4>
-              <p class="text-gray-600">{experience.description}</p>
-              <div class="mt-2">
+              <p class="text-slate-400">{experience.description}</p>
+              <BadgeList>
                 {experience.tags.map((tag) => (
-                  <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-                    {tag}
-                  </span>
+                  <Badge variant="secondary">{tag}</Badge>
                 ))}
-              </div>
-            </div>
+              </BadgeList>
+            </section>
           ))}
-        </div>
+        </article>
       ))
     }
   </div>
