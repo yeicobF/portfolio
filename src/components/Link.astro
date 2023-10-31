@@ -5,9 +5,11 @@ interface Props {
   class?: string
 }
 
-const { href, target, class: className } = Astro.props
+const { href, target: propsTarget, class: className } = Astro.props
 
-const rel = target === "_blank" ? "noopener noreferrer" : null
+const isExternal = href.startsWith("http") || propsTarget === "_blank"
+const target = isExternal ? "_blank" : propsTarget
+const rel = isExternal ? "noopener noreferrer" : null
 ---
 
 <a
