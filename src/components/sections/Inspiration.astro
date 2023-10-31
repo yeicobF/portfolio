@@ -1,8 +1,29 @@
 ---
-import FullScreenSection from "../FullScreenSection.astro"
-import SectionTitle from "../SectionTitle.astro"
+import FullScreenSection from "@/components/FullScreenSection.astro"
+import Link from "@/components/Link.astro"
+import SectionTitle from "@/components/SectionTitle.astro"
 ---
 
-<FullScreenSection id="inspiration">
+<FullScreenSection id="inspiration" class="max-w-2xl items-center">
   <SectionTitle>Inspiration</SectionTitle>
+  <div
+    class="flex flex-col gap-4 items-center text-md [text-wrap:balance] text-center"
+  >
+    <p>
+      I'm thankful for the support of <Link
+        href="https://www.linkedin.com/in/c%C3%A9sar-sustaita-8278a6279"
+      >
+        César Sustaita
+      </Link> and <Link href="https://www.linkedin.com/in/marco-antonn/">
+        Marco López
+      </Link> in enhancing the design of my project.
+    </p>
+    <p>
+      Inspired by the portfolios created by <Link
+        href="https://brittanychiang.com/"
+      >
+        Brittany Chiang
+      </Link> and <Link href="https://www.juliacodes.com/">Julia Johnson</Link>.
+    </p>
+  </div>
 </FullScreenSection>
