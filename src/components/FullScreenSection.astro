@@ -24,7 +24,6 @@ const optimizedBackgroundImage =
   backgroundImage &&
   (await getImage({
     src: backgroundImage,
-    quality: "max",
   }))
 
 const image = `url('${optimizedBackgroundImage?.src}')`
@@ -37,12 +36,7 @@ const bgImg = [gradient, image].filter(Boolean).join(", ")
   style={`background-image: ${bgImg}`}
   {...restProps}
 >
-  <Container
-    class:list={[
-      "flex flex-col gap-16 sticky bottom-20",
-      className,
-    ]}
-  >
+  <Container class:list={["flex flex-col gap-16 sticky bottom-20", className]}>
     <slot />
   </Container>
 </Element>
