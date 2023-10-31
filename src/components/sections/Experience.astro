@@ -1,0 +1,104 @@
+---
+import FullScreenSection from "@/components/FullScreenSection.astro"
+import SectionTitle from "@/components/SectionTitle.astro"
+import BadgeList from "@/components/BadgeList.astro"
+import Badge from "@/components/Badge.astro"
+import Link from "@/components/Link.astro"
+
+type Experience = {
+  role: string
+  location?: string
+  startDate?: string
+  endDate?: string
+  description: string
+  tags: string[]
+  links?: {
+    name: string
+    url: string
+  }[]
+}
+
+type Company = {
+  name: string
+  website: string
+  description?: string
+  logo?: string
+  links?: {
+    name: string
+    url: string
+  }[]
+}
+
+type ExperienceBlock = {
+  company: Company
+  experiences: Experience[]
+}
+
+const AIA_PARTNERS = {
+  name: "AIA Partners",
+  // logo: "/images/aia-partners.png",
+  website: "https://www.aiapartners.com/",
+}
+
+const EXPERIENCE: Array<ExperienceBlock> = [
+  {
+    company: AIA_PARTNERS,
+    experiences: [
+      {
+        role: "Technology Manager",
+        description:
+          "Managed a team of 5 developers to build projects according to the company's needs.",
+        startDate: "2023-06-16",
+        tags: [
+          "Leadership",
+          "Vue 3",
+          "JavaScript",
+          "CSS",
+          "Figma",
+          "Node.js",
+          "API",
+          "Git",
+        ],
+      },
+      {
+        role: "Frontend Developer",
+        description:
+          "Collaborated closely with the backend team and our Technology Manager to drive our company's vision and objectives.",
+        startDate: "2022-06-16",
+        endDate: "2023-06-16",
+        tags: ["Vue 3", "JavaScript", "CSS", "Figma", "Node.js", "API", "Git"],
+      },
+    ],
+  },
+]
+---
+
+<FullScreenSection id="experience" class="items-center">
+  <SectionTitle class="mx-auto w-full text-center">Experience</SectionTitle>
+  <div class="flex flex-col gap-16 max-w-lg max-w-auto">
+    {
+      EXPERIENCE.map((block) => (
+        <article class="flex flex-col">
+          <h3 class="text-2xl font-bold  mb-2">
+            <Link href={block.company.website}>{block.company.name}</Link>
+          </h3>
+          {block.experiences.map((experience) => (
+            <section class="ml-2 pb-6 pl-2 border-l-2 border-slate-500 border-opacity-75 flex flex-col gap-2">
+              <header>
+                <h4 class="text-xl font-semibold text-blue-100">
+                  {experience.role}
+                </h4>
+                <p class="text-slate-400">{experience.description}</p>
+              </header>
+              <BadgeList>
+                {experience.tags.map((tag) => (
+                  <Badge variant="secondary">{tag}</Badge>
+                ))}
+              </BadgeList>
+            </section>
+          ))}
+        </article>
+      ))
+    }
+  </div>
+</FullScreenSection>

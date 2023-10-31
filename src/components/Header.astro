@@ -21,6 +21,7 @@ const SECTIONS: Array<Section> = [
   {
     name: "Experience",
     url: "#experience",
+    display: true,
   },
   {
     name: "Projects",
@@ -39,7 +40,7 @@ md:px-20 mx-auto justify-between flex gap-8 items-baseline"
       <Logo />
     </a>
 
-    <ul class="flex items-center gap-4 sm:gap-8 text-sm">
+    <ul class="flex items-center justify-end flex-wrap gap-x-4 sm:gap-x-8 text-sm">
       {
         SECTIONS.map(
           ({ url, name, display }) =>
