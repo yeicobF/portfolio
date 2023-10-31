@@ -1,7 +1,15 @@
 ---
 const { class: className } = Astro.props
+
+const hasMaxWidth = className.includes("max-w-")
 ---
 
-<div class:list={["max-w-5xl w-full px-4 md:px-16 mx-auto py-16 md:py-20", className]}>
+<div
+  class:list={[
+    "w-full px-4 md:px-16 mx-auto py-16 md:py-20",
+    { "max-w-5xl": hasMaxWidth === false },
+    className,
+  ]}
+>
   <slot />
 </div>
