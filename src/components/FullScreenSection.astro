@@ -38,7 +38,7 @@ const bgImg = [gradient, image].filter(Boolean).join(", ")
   style={`background-image: ${bgImg}`}
   {...restProps}
 >
-  <Container class:list={["flex flex-col gap-10 md:gap-16 sticky bottom-20 h-full justify-center", className]}>
+  <Container class:list={["flex flex-col gap-10 md:gap-16 sticky bottom-40 h-full justify-center", className]}>
     <slot />
   </Container>
 </Element>
