@@ -4,6 +4,7 @@ import SectionTitle from "@/components/SectionTitle.astro"
 import BadgeList from "@/components/BadgeList.astro"
 import Badge from "@/components/Badge.astro"
 import Link from "@/components/Link.astro"
+import ExternalLink from "@/icons/ExternalLink.astro"
 
 type Experience = {
   role: string
@@ -74,29 +75,36 @@ const EXPERIENCE: Array<ExperienceBlock> = [
 ---
 
 <FullScreenSection id="experience" class="items-center">
-  <SectionTitle class="mx-auto w-full text-center">Experience</SectionTitle>
-  <div class="flex flex-col gap-16 max-w-lg max-w-auto">
+  <SectionTitle class="mx-auto w-full sm:text-center">Experience</SectionTitle>
+  <div class="flex flex-col gap-8 max-w-lg max-w-auto">
     {
-      EXPERIENCE.map((block) => (
-        <article class="flex flex-col">
-          <h3 class="text-2xl font-bold  mb-2">
-            <Link href={block.company.website}>{block.company.name}</Link>
-          </h3>
-          {block.experiences.map((experience) => (
-            <section class="ml-2 pb-6 pl-2 border-l-2 border-slate-500 border-opacity-75 flex flex-col gap-2">
-              <header>
-                <h4 class="text-xl font-semibold text-blue-100">
-                  {experience.role}
-                </h4>
-                <p class="text-slate-400">{experience.description}</p>
-              </header>
-              <BadgeList>
-                {experience.tags.map((tag) => (
-                  <Badge variant="secondary">{tag}</Badge>
-                ))}
-              </BadgeList>
-            </section>
-          ))}
+      EXPERIENCE.map(({ company, experiences }) => (
+        <article class="flex flex-col gap-4">
+          <header>
+            <h3 class="text-2xl font-bold">{company.name}</h3>
+            <Link href={company.website}>
+              {company.website}
+            </Link>
+          </header>
+          <section class="flex flex-col gap-4 ml-2 border-l-2 border-dashed border-gray-600">
+            {experiences.map((experience) => (
+              <article class="border-opacity-75 flex flex-col gap-2 pl-3">
+                <header>
+                  <h4 class="text-xl font-semibold text-blue-100">
+                    {experience.role}
+                  </h4>
+                  <p class="text-slate-400">{experience.description}</p>
+                </header>
+                <BadgeList>
+                  {experience.tags.map((tag) => (
+                    <Badge variant="secondary" size="sm">
+                      {tag}
+                    </Badge>
+                  ))}
+                </BadgeList>
+              </article>
+            ))}
+          </section>
         </article>
       ))
     }
