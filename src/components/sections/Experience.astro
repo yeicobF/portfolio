@@ -1,7 +1,7 @@
 ---
 import FullScreenSection from "@/components/FullScreenSection.astro"
 import SectionTitle from "@/components/SectionTitle.astro"
-import BadgeList from "@/components/BadgeList.astro"
+import List from "@/components/List.astro"
 import Badge from "@/components/Badge.astro"
 import ExternalLink from "@/icons/ExternalLink.astro"
 import LinkWithIcon from "../links/LinkWithIcon.astro"
@@ -9,7 +9,7 @@ import LinkWithIcon from "../links/LinkWithIcon.astro"
 type Experience = {
   role: string
   location?: string
-  startDate?: string
+  startDate: string
   endDate?: string
   description: string
   tags: string[]
@@ -48,15 +48,14 @@ const EXPERIENCE: Array<ExperienceBlock> = [
       {
         role: "Technology Manager",
         description:
-          "Managed a team of 5 developers to build projects according to the company's needs.",
+          "Managed a team of 5 developers to build projects, involving every step of the software development life cycle with the mission of growing the company's digital ecosystem. Developed many projects, involving both frontend and backend technologies.",
         startDate: "2023-06-16",
         tags: [
           "Leadership",
+          "Project Management",
           "Vue 3",
-          "JavaScript",
-          "CSS",
           "Figma",
-          "Node.js",
+          "Express.js",
           "API",
           "Git",
         ],
@@ -64,14 +63,36 @@ const EXPERIENCE: Array<ExperienceBlock> = [
       {
         role: "Frontend Developer",
         description:
-          "Collaborated closely with the backend team and our Technology Manager to drive our company's vision and objectives.",
+          "Collaborated closely with the Backend Team and our Technology Manager to mantain and develop new projects based on the company's vision. Developed a financial education blog, and a platform for the investors to manage their investments.",
         startDate: "2022-06-16",
         endDate: "2023-06-16",
-        tags: ["Vue 3", "JavaScript", "CSS", "Figma", "Node.js", "API", "Git"],
+        tags: [
+          "Vue 3",
+          "JavaScript",
+          "CSS",
+          "Figma",
+          "Express.js",
+          "API",
+          "Git",
+        ],
+        links: [
+          {
+            name: "Financial Education Blog",
+            url: "https://blog.aiapartner.com/",
+          },
+        ],
       },
     ],
   },
 ]
+
+const getMonthAndYear = (date: string) => {
+  const dateObject = new Date(date)
+  return dateObject.toLocaleString("en-US", {
+    month: "long",
+    year: "numeric",
+  })
+}
 
 const getBaseUrl = (url: string) => {
   const urlObject = new URL(url)
@@ -84,32 +105,49 @@ const getBaseUrl = (url: string) => {
   <div class="flex flex-col gap-8 max-w-xl max-w-auto">
     {
       EXPERIENCE.map(({ company, experiences }) => (
-        <article class="flex flex-col gap-4">
+        <article class="flex flex-col gap-2">
           <header>
-            <h3 class="text-2xl font-bold">{company.name}</h3>
+            <h3 class="text-3xl font-bold text-blue-300">{company.name}</h3>
 
-            <LinkWithIcon href={company.website} size="sm">
+            <LinkWithIcon href={company.website} size="md">
               {getBaseUrl(company.website)} <ExternalLink />
             </LinkWithIcon>
           </header>
-          <section class="flex flex-col gap-4 ml-2 border-l-2 border-dashed border-gray-600">
-            {experiences.map((experience) => (
-              <article class="border-opacity-75 flex flex-col gap-2 pl-3">
-                <header>
-                  <h4 class="text-xl font-semibold text-blue-100">
-                    {experience.role}
-                  </h4>
-                  <p class="text-slate-400">{experience.description}</p>
-                </header>
-                <BadgeList>
-                  {experience.tags.map((tag) => (
-                    <Badge variant="secondary" size="sm">
-                      {tag}
-                    </Badge>
-                  ))}
-                </BadgeList>
-              </article>
-            ))}
+          <section class="flex flex-col gap-8 ml-2 border-l-2 border-dashed border-gray-600">
+            {experiences.map(
+              ({ role, description, tags, startDate, endDate, links }) => (
+                <article class="border-opacity-75 flex flex-col gap-2 pl-3">
+                  <header>
+                    <h4 class="text-lg font-bold text-blue-100">{role}</h4>
+                    <p class="text-sm text-slate-400 font-semibold">
+                      <time>{getMonthAndYear(startDate)}</time> -{" "}
+                      <time>
+                        {endDate ? getMonthAndYear(endDate) : "Present"}
+                      </time>
+                    </p>
+                  </header>
+                  <p class="text-slate-300">{description}</p>
+                  {links && (
+                    <List>
+                      {links.map(({ name, url }) => (
+                        <LinkWithIcon href={url} size="sm">
+                          {name} <ExternalLink />
+                        </LinkWithIcon>
+                      ))}
+                    </List>
+                  )}
+                  <footer>
+                    <List>
+                      {tags.map((tag) => (
+                        <Badge variant="secondary" size="sm">
+                          {tag}
+                        </Badge>
+                      ))}
+                    </List>
+                  </footer>
+                </article>
+              ),
+            )}
           </section>
         </article>
       ))
