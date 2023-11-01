@@ -25,6 +25,7 @@ const optimizedBackgroundImage =
   backgroundImage &&
   (await getImage({
     src: backgroundImage,
+    quality: 'high'
   }))
 
 const image = `url('${optimizedBackgroundImage?.src}')`
