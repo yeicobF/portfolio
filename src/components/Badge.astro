@@ -1,18 +1,29 @@
 ---
 interface Props {
   variant?: "primary" | "secondary"
+  size?: "sm" | "md" | "lg"
 }
 
-const { variant = "primary" } = Astro.props
+const { variant = "primary", size = "md" } = Astro.props
 
 const variants = {
   primary: "text-blue-100 bg-blue-950",
-  secondary: "text-blue-100 bg-sky-800",
+  secondary: "text-teal-50 bg-emerald-800",
+}
+
+const sizes = {
+  sm: "text-xs",
+  md: "text-sm",
+  lg: "text-base",
 }
 ---
 
 <article
-  class:list={["text-sm rounded-full py-1 px-3 font-medium", variants[variant]]}
+  class:list={[
+    "rounded-full py-1 px-3 font-medium",
+    sizes[size],
+    variants[variant],
+  ]}
 >
   <slot />
 </article>
