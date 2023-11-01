@@ -4,9 +4,10 @@ import type { LinkProps } from "@/types"
 
 interface Props extends LinkProps {
   size?: "sm" | "md" | "lg"
+  class?: string
 }
 
-const { href, size = "md" } = Astro.props
+const { href, size = "md", class: className } = Astro.props
 
 const sizes = {
   sm: "text-sm h-5",
@@ -15,6 +16,9 @@ const sizes = {
 }
 ---
 
-<Link href={href} class:list={["flex gap-2 justify-items-center w-fit", sizes[size]]}>
+<Link
+  href={href}
+  class:list={["flex gap-2 justify-items-center w-fit", sizes[size], className]}
+>
   <slot />
 </Link>
