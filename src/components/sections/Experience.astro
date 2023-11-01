@@ -101,12 +101,12 @@ const getBaseUrl = (url: string) => {
 ---
 
 <FullScreenSection id="experience" class="items-center">
-  <SectionTitle class="mx-auto w-full sm:text-center">Experience</SectionTitle>
-  <div class="flex flex-col gap-8 max-w-xl max-w-auto">
+  <SectionTitle class="mx-auto w-full">Experience</SectionTitle>
+  <div class="flex flex-col gap-8">
     {
       EXPERIENCE.map(({ company, experiences }) => (
-        <article class="flex flex-col gap-2">
-          <header>
+        <article class="flex flex-col md:flex-row gap-2 relative">
+          <header class="company-header h-fit">
             <h3 class="text-3xl font-bold text-blue-300">{company.name}</h3>
 
             <LinkWithIcon href={company.website} size="md">
@@ -154,3 +154,12 @@ const getBaseUrl = (url: string) => {
     }
   </div>
 </FullScreenSection>
+
+<style>
+  @media (min-width: 768px) {
+    .company-header {
+      position: sticky;
+      top: calc(1rem + var(--header-height));
+    }
+  }
+</style>
