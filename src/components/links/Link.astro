@@ -1,7 +1,7 @@
 ---
-interface Props {
-  href: string
-  target?: string
+import { type LinkProps } from "@/types"
+
+interface Props extends LinkProps {
   class?: string
 }
 
@@ -18,5 +18,7 @@ const rel = isExternal ? "noopener noreferrer" : null
   target={target}
   rel={rel}
 >
+  <slot name="left" />
   <slot />
+  <slot name="right" />
 </a>

@@ -3,8 +3,8 @@ import FullScreenSection from "@/components/FullScreenSection.astro"
 import SectionTitle from "@/components/SectionTitle.astro"
 import BadgeList from "@/components/BadgeList.astro"
 import Badge from "@/components/Badge.astro"
-import Link from "@/components/Link.astro"
 import ExternalLink from "@/icons/ExternalLink.astro"
+import LinkWithIcon from "../links/LinkWithIcon.astro"
 
 type Experience = {
   role: string
@@ -38,7 +38,7 @@ type ExperienceBlock = {
 const AIA_PARTNERS = {
   name: "AIA Partners",
   // logo: "/images/aia-partners.png",
-  website: "https://www.aiapartners.com/",
+  website: "https://www.aiapartner.com/",
 }
 
 const EXPERIENCE: Array<ExperienceBlock> = [
@@ -72,19 +72,25 @@ const EXPERIENCE: Array<ExperienceBlock> = [
     ],
   },
 ]
+
+const getBaseUrl = (url: string) => {
+  const urlObject = new URL(url)
+  return urlObject.hostname
+}
 ---
 
 <FullScreenSection id="experience" class="items-center">
   <SectionTitle class="mx-auto w-full sm:text-center">Experience</SectionTitle>
-  <div class="flex flex-col gap-8 max-w-lg max-w-auto">
+  <div class="flex flex-col gap-8 max-w-xl max-w-auto">
     {
       EXPERIENCE.map(({ company, experiences }) => (
         <article class="flex flex-col gap-4">
           <header>
             <h3 class="text-2xl font-bold">{company.name}</h3>
-            <Link href={company.website}>
-              {company.website}
-            </Link>
+
+            <LinkWithIcon href={company.website} size="sm">
+              {getBaseUrl(company.website)} <ExternalLink />
+            </LinkWithIcon>
           </header>
           <section class="flex flex-col gap-4 ml-2 border-l-2 border-dashed border-gray-600">
             {experiences.map((experience) => (

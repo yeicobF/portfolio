@@ -6,10 +6,11 @@ import ecotideImg from "@/assets/images/projects/ecotide.png"
 import Figma from "@/icons/Figma.astro"
 import FullScreenSection from "@/components/FullScreenSection.astro"
 import GitHub from "@/icons/GitHub.astro"
-import Link from "@/components/Link.astro"
+import Link from "@/components/links/Link.astro"
 import nourishImg from "@/assets/images/projects/nourish.png"
 import SectionTitle from "@/components/SectionTitle.astro"
 import Web from "@/icons/Web.astro"
+import LinkWithIcon from "../links/LinkWithIcon.astro"
 
 type Project = {
   name: string
@@ -67,7 +68,7 @@ const getProjectLinks = ({ link, repo, design }: Project) => {
 ---
 
 <FullScreenSection id="projects" class="max-w-7xl">
-  <SectionTitle class="max-w-5xl mx-auto w-full">Projects</SectionTitle>
+  <SectionTitle>Projects</SectionTitle>
 
   <div class="flex flex-col gap-16">
     {
@@ -87,16 +88,13 @@ const getProjectLinks = ({ link, repo, design }: Project) => {
                 <h3 class="text-xl font-semibold">{name}</h3>
                 <p class="text-slate-300 [text-wrap:balance]">{description}</p>
               </header>
-              <div class="flex flex-wrap gap-x-6">
+              <div class="flex flex-wrap gap-x-6 gap-y-1">
                 {getProjectLinks(project).map(
                   ({ icon: Icon, href, text }) =>
                     href && (
-                      <Link
-                        href={href}
-                        class="text-sm h-5 flex gap-2 justify-items-center"
-                      >
+                      <LinkWithIcon href={href} size="sm">
                         <Icon /> {text}
-                      </Link>
+                      </LinkWithIcon>
                     ),
                 )}
               </div>
