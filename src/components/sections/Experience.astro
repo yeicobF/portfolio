@@ -120,8 +120,11 @@ const getBaseUrl = (url: string) => {
                   <header>
                     <h4 class="text-lg font-bold text-blue-100">{role}</h4>
                     <p class="text-sm text-slate-400 font-semibold">
-                      <time>{getMonthAndYear(startDate)}</time> -{" "}
-                      <time>
+                      <time datetime={startDate}>
+                        {getMonthAndYear(startDate)}
+                      </time>
+                      -
+                      <time datetime={endDate}>
                         {endDate ? getMonthAndYear(endDate) : "Present"}
                       </time>
                     </p>
