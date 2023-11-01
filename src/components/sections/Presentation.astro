@@ -11,12 +11,14 @@ import studevsTalk from "@/assets/images/studevs-talk.png"
   backgroundImage={studevsTalk}
   element="main"
   id="home"
-  class="justify-center md:items-center h-full"
+  class="justify-center md:items-center h-full gap-4 md:gap-8 "
 >
-  <div class="flex flex-col gap-8 text-lg md:items-center">
-    <header class="w-full mx-auto flex md:items-center md:text-center flex-col">
-      <h1 class="text-9xl font-black text-sky-300">Jacob Flores</h1>
-      <p class="text-4xl w-fit">
+  <div class="flex flex-col gap-4 text-lg md:items-center">
+    <header
+      class="w-full mx-auto flex md:items-center md:text-center flex-col [text-wrap:balance]"
+    >
+      <h1 class="text-9xl md:text-9xl font-black text-blue-400">Jacob Flores</h1>
+      <p class="text-3xl md:text-4xl w-fit">
         <strong>{ME.role}</strong>
         {
           ME.company?.name && (
