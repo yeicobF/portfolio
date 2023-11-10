@@ -11,13 +11,12 @@ import studevsTalk from "@/assets/images/studevs-talk.png"
   backgroundImage={studevsTalk}
   element="main"
   id="home"
-  class="justify-center md:items-center h-full gap-4 md:gap-8"
 >
   <div class="flex flex-col gap-4 text-lg md:items-center">
     <header
       class="w-full mx-auto flex md:items-center md:text-center flex-col [text-wrap:balance]"
     >
-      <h1 class="text-8xl md:text-9xl font-black text-blue-400">
+      <h1 class="text-8xl lg:text-9xl font-black text-blue-400">
         Jacob Flores
       </h1>
       <p class="text-3xl md:text-4xl w-fit">
@@ -34,6 +33,7 @@ import studevsTalk from "@/assets/images/studevs-talk.png"
         }
       </p>
     </header>
+    <SocialMedia class="justify-start md:justify-center w-full" size="md" />
   </div>
   <!-- <Image
       src={studevsTalk}
@@ -41,5 +41,4 @@ import studevsTalk from "@/assets/images/studevs-talk.png"
       quality="max"
       class="aspect-video object-cover h-full rounded-xl object-left-bottom brightness-110"
     /> -->
-  <SocialMedia class="justify-start md:justify-center w-full" size="md" />
 </FullScreenSection>
