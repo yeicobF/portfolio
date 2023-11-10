@@ -16,6 +16,7 @@ module.exports = {
 
     "plugin:astro/jsx-a11y-recommended",
     "plugin:astro/recommended",
+    "prettier",
   ],
   parser: "@typescript-eslint/parser",
   parserOptions: {
@@ -23,8 +24,9 @@ module.exports = {
     sourceType: "module",
   },
   rules: {
+    semi: ["error", "never"],
     "no-unused-vars": "warn",
-    "@typescript-eslint/consistent-type-definitions": ["error", 'type'],
+    "@typescript-eslint/consistent-type-definitions": ["error", "type"],
     "@typescript-eslint/no-explicit-any": "warn",
     "@typescript-eslint/strict-boolean-expressions": "warn",
     "@typescript-eslint/no-unused-vars": [

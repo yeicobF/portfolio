@@ -1,4 +1,10 @@
 {
+  // https://docs.astro.build/es/editor-setup/#prettier
+  // https://github.com/withastro/prettier-plugin-astro/blob/main/README.md
+  "prettier.documentSelectors": ["**/*.astro"],
+  "[astro]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
   "eslint.validate": [
     "javascript",
     "javascriptreact",
