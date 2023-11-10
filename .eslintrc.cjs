@@ -24,6 +24,9 @@ module.exports = {
   },
   rules: {
     "no-unused-vars": "warn",
+    "@typescript-eslint/consistent-type-definitions": ["error", 'type'],
+    "@typescript-eslint/no-explicit-any": "warn",
+    "@typescript-eslint/strict-boolean-expressions": "warn",
     "@typescript-eslint/no-unused-vars": [
       "warn",
       {
