@@ -1,10 +1,10 @@
 ---
-import FullScreenSection from "@/components/FullScreenSection.astro"
-import SectionTitle from "@/components/SectionTitle.astro"
-import List from "@/components/List.astro"
 import Badge from "@/components/Badge.astro"
 import ExternalLink from "@/icons/ExternalLink.astro"
-import LinkWithIcon from "../links/LinkWithIcon.astro"
+import FullScreenSection from "@/components/FullScreenSection.astro"
+import LinkWithIcon from "@/components/links/LinkWithIcon.astro"
+import List from "@/components/List.astro"
+import SectionTitle from "@/components/SectionTitle.astro"
 
 type Experience = {
   role: string
@@ -13,10 +13,10 @@ type Experience = {
   endDate?: string
   description: string
   tags: string[]
-  links?: {
+  links?: Array<{
     name: string
     url: string
-  }[]
+  }>
 }
 
 type Company = {
@@ -24,10 +24,10 @@ type Company = {
   website: string
   description?: string
   logo?: string
-  links?: {
+  links?: Array<{
     name: string
     url: string
-  }[]
+  }>
 }
 
 type ExperienceBlock = {
@@ -41,7 +41,7 @@ const AIA_PARTNERS = {
   website: "https://www.aiapartner.com/",
 }
 
-const EXPERIENCE: Array<ExperienceBlock> = [
+const EXPERIENCE: ExperienceBlock[] = [
   {
     company: AIA_PARTNERS,
     experiences: [
@@ -86,7 +86,7 @@ const EXPERIENCE: Array<ExperienceBlock> = [
   },
 ]
 
-const getMonthAndYear = (date: string) => {
+const getMonthAndYear = (date: string): string => {
   const dateObject = new Date(date)
   return dateObject.toLocaleString("en-US", {
     month: "long",
@@ -94,7 +94,7 @@ const getMonthAndYear = (date: string) => {
   })
 }
 
-const getBaseUrl = (url: string) => {
+const getBaseUrl = (url: string): string => {
   const urlObject = new URL(url)
   return urlObject.hostname
 }

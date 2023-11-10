@@ -1,4 +1,4 @@
-export interface LinkProps {
+export type LinkProps = {
   href: string
   target?: string
 }

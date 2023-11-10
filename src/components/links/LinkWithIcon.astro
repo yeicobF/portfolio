@@ -2,10 +2,10 @@
 import Link from "./Link.astro"
 import type { LinkProps } from "@/types"
 
-interface Props extends LinkProps {
+type Props = {
   size?: "sm" | "md" | "lg"
   class?: string
-}
+} & LinkProps
 
 const { href, size = "md", class: className } = Astro.props
 

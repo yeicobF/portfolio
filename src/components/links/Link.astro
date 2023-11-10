@@ -1,9 +1,9 @@
 ---
 import { type LinkProps } from "@/types"
 
-interface Props extends LinkProps {
+type Props = {
   class?: string
-}
+} & LinkProps
 
 const { href, target: propsTarget, class: className } = Astro.props
 

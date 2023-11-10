@@ -1,11 +1,11 @@
 ---
 import "@fontsource-variable/inter"
 import "../assets/main.css"
+import Footer from "@/components/Footer.astro"
 import Header from "@/components/Header.astro"
 import socialImageUrl from "@/assets/images/og-preview.png"
-import Footer from "@/components/Footer.astro"
 
-interface Props {
+type Props = {
   title?: string
 }
 
@@ -99,7 +99,7 @@ const TWITTER_HANDLE = "@yeiicobF"
       transparent 80%
     );
 
-    /* 
+    /*
     https://www.magicpattern.design/tools/css-backgrounds
 
     background-color: #000000;

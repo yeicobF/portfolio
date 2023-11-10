@@ -22,7 +22,7 @@ import studevsTalk from "@/assets/images/studevs-talk.png"
       <p class="text-3xl md:text-4xl w-fit">
         <strong>{ME.role}</strong>
         {
-          ME.company?.name && (
+          (ME.company.name.length > 0) && (
             <>
               at
               <Link href={ME.company.web} target="_blank">

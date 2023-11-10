@@ -1,10 +1,10 @@
 ---
-import type { ImageMetadata } from "astro"
-import { getImage } from "astro:assets"
+import type { GetImageResult, ImageMetadata } from "astro"
 import Container from "./Container.astro"
 import { GRADIENTS } from "@/consts"
+import { getImage } from "astro:assets"
 
-interface Props {
+type Props = {
   backgroundImage?: ImageMetadata
   gradient?: string
   class?: string
@@ -20,13 +20,16 @@ const {
   ...restProps
 } = Astro.props
 
-// https://astro.build/blog/images/
-const optimizedBackgroundImage =
-  backgroundImage &&
-  (await getImage({
+let optimizedBackgroundImage: GetImageResult | undefined
+
+if (backgroundImage !== undefined) {
+  optimizedBackgroundImage = await getImage({
     src: backgroundImage,
     quality: "high",
-  }))
+  })
+}
+
+// https://astro.build/blog/images/
 
 const image = `url('${optimizedBackgroundImage?.src}')`
 

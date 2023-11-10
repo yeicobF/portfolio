@@ -1,16 +1,16 @@
 ---
-import { Image } from "astro:assets"
 import Badge from "@/components/Badge.astro"
-import List from "@/components/List.astro"
-import ecotideImg from "@/assets/images/projects/ecotide.png"
 import Figma from "@/icons/Figma.astro"
 import FullScreenSection from "@/components/FullScreenSection.astro"
 import GitHub from "@/icons/GitHub.astro"
+import { Image } from "astro:assets"
 import Link from "@/components/links/Link.astro"
-import nourishImg from "@/assets/images/projects/nourish.png"
+import LinkWithIcon from "../links/LinkWithIcon.astro"
+import List from "@/components/List.astro"
 import SectionTitle from "@/components/SectionTitle.astro"
 import Web from "@/icons/Web.astro"
-import LinkWithIcon from "../links/LinkWithIcon.astro"
+import ecotideImg from "@/assets/images/projects/ecotide.png"
+import nourishImg from "@/assets/images/projects/nourish.png"
 
 type Project = {
   name: string
@@ -22,7 +22,7 @@ type Project = {
   tech: string[]
 }
 
-const PROJECTS: Array<Project> = [
+const PROJECTS: Project[] = [
   {
     name: "🌊 Ecotide",
     description:
@@ -46,7 +46,12 @@ const PROJECTS: Array<Project> = [
   },
 ]
 
-const getProjectLinks = ({ link, repo, design }: Project) => {
+type ProjectLink = {
+  icon: (_props: Record<string, any>) => any
+  href?: string
+  text: string
+}
+const getProjectLinks = ({ link, repo, design }: Project): ProjectLink[] => {
   return [
     {
       icon: Web,
