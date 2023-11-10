@@ -14,15 +14,15 @@ import studevsTalk from "@/assets/images/studevs-talk.png"
 >
   <div class="flex flex-col gap-4 text-lg md:items-center">
     <header
-      class="w-full mx-auto flex md:items-center md:text-center flex-col [text-wrap:balance]"
+      class="mx-auto flex w-full flex-col [text-wrap:balance] md:items-center md:text-center"
     >
-      <h1 class="text-8xl lg:text-9xl font-black text-blue-400">
+      <h1 class="text-8xl font-black text-blue-400 lg:text-9xl">
         Jacob Flores
       </h1>
-      <p class="text-3xl md:text-4xl w-fit">
+      <p class="w-fit text-3xl md:text-4xl">
         <strong>{ME.role}</strong>
         {
-          (ME.company.name.length > 0) && (
+          ME.company.name.length > 0 && (
             <>
               at
               <Link href={ME.company.web} target="_blank">
@@ -33,7 +33,7 @@ import studevsTalk from "@/assets/images/studevs-talk.png"
         }
       </p>
     </header>
-    <SocialMedia class="justify-start md:justify-center w-full" size="md" />
+    <SocialMedia class="w-full justify-start md:justify-center" size="md" />
   </div>
   <!-- <Image
       src={studevsTalk}

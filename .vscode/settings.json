@@ -2,6 +2,7 @@
   // https://docs.astro.build/es/editor-setup/#prettier
   // https://github.com/withastro/prettier-plugin-astro/blob/main/README.md
   "prettier.documentSelectors": ["**/*.astro"],
+  "prettier.configPath": ".prettierrc.cjs",
   "[astro]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },

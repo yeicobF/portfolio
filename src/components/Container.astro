@@ -6,7 +6,7 @@ const hasMaxWidth = className.includes("max-w-")
 
 <div
   class:list={[
-    "w-full px-4 md:px-16 mx-auto py-16 md:py-20",
+    "mx-auto w-full px-4 py-16 md:px-16 md:py-20",
     { "max-w-5xl": hasMaxWidth === false },
     className,
   ]}

@@ -80,11 +80,11 @@ const getProjectLinks = ({ link, repo, design }: Project): ProjectLink[] => {
       PROJECTS.map((project) => {
         const { name, description, link, image, tech } = project
         return (
-          <article class="w-full flex flex-col lg:grid lg:grid-cols-2 gap-4 md:gap-8 rounded-xl md:border-4 md:p-4 lg:p-8 border-blue-500 hover:border-blue-300 md:bg-gradient-to-tr md:transition-all duration-200 from-transparent to-blue-700/30 via-blue-700/10 via-40% md:hover:scale-105">
+          <article class="flex w-full flex-col gap-4 rounded-xl border-blue-500 from-transparent via-blue-700/10 via-40% to-blue-700/30 duration-200 hover:border-blue-300 md:gap-8 md:border-4 md:bg-gradient-to-tr md:p-4 md:transition-all md:hover:scale-105 lg:grid lg:grid-cols-2 lg:p-8">
             <section class="flex flex-col gap-4">
               <header>
-                <h3 class="text-4xl font-semibold mb-2">{name}</h3>
-                <p class="text-slate-400 text-lg [text-wrap:balance]">
+                <h3 class="mb-2 text-4xl font-semibold">{name}</h3>
+                <p class="text-lg text-slate-400 [text-wrap:balance]">
                   {description}
                 </p>
               </header>
@@ -106,7 +106,7 @@ const getProjectLinks = ({ link, repo, design }: Project): ProjectLink[] => {
             </section>
             <Link href={link}>
               <Image
-                class="rounded-lg h-full w-full object-cover object-top"
+                class="h-full w-full rounded-lg object-cover object-top"
                 src={image}
                 alt={`${name} Preview`}
               />

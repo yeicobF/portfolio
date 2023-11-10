@@ -105,7 +105,7 @@ const getBaseUrl = (url: string): string => {
   <div class="flex flex-col gap-8">
     {
       EXPERIENCE.map(({ company, experiences }) => (
-        <article class="flex flex-col md:flex-row gap-2 relative">
+        <article class="relative flex flex-col gap-2 md:flex-row">
           <header class="company-header h-fit">
             <h3 class="text-3xl font-bold text-blue-300">{company.name}</h3>
 
@@ -113,13 +113,13 @@ const getBaseUrl = (url: string): string => {
               {getBaseUrl(company.website)} <ExternalLink />
             </LinkWithIcon>
           </header>
-          <section class="flex flex-col gap-8 ml-2 border-l-2 border-dashed border-gray-600">
+          <section class="ml-2 flex flex-col gap-8 border-l-2 border-dashed border-gray-600">
             {experiences.map(
               ({ role, description, tags, startDate, endDate, links }) => (
-                <article class="border-opacity-75 flex flex-col gap-2 pl-3">
+                <article class="flex flex-col gap-2 border-opacity-75 pl-3">
                   <header>
                     <h4 class="text-lg font-bold text-blue-100">{role}</h4>
-                    <p class="text-sm text-slate-400 font-semibold">
+                    <p class="text-sm font-semibold text-slate-400">
                       <time datetime={startDate}>
                         {getMonthAndYear(startDate)}
                       </time>
