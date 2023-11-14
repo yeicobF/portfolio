@@ -2,6 +2,7 @@
 import EmailLogo from "@/icons/Email.astro"
 import GitHubLogo from "@/icons/GitHub.astro"
 import LinkedInLogo from "@/icons/LinkedIn.astro"
+import YouTubeLogo from "@/icons/YouTube.astro"
 
 type Props = {
   size?: "sm" | "md" | "lg"
@@ -29,6 +30,11 @@ const SOCIAL_MEDIA = [
     icon: GitHubLogo,
   },
   {
+    name: "YouTube",
+    url: "https://www.youtube.com/@JacobFloresSWE",
+    icon: YouTubeLogo,
+  },
+  {
     name: "Email",
     url: "mailto:jacobfloresrdz@gmail.com",
     icon: EmailLogo,
@@ -44,7 +50,7 @@ const SOCIAL_MEDIA = [
         target="_blank"
         rel="noopener noreferrer"
         class:list={[
-          "text-white transition-colors duration-200 hover:text-blue-300",
+          "text-white transition-colors duration-200 hover:text-blue-400",
           sizes[size],
         ]}
         aria-label={name}
