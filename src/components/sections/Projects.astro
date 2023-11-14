@@ -14,7 +14,7 @@ import nourishImg from "@/assets/images/projects/nourish.png"
 
 type Project = {
   name: string
-  description: string
+  description: string[]
   link: string
   repo?: string
   design?: string
@@ -25,8 +25,10 @@ type Project = {
 const PROJECTS: Project[] = [
   {
     name: "Ecotide",
-    description:
-      "A web platform where you can explore detailed information about the ocean, phytoplankton species, and the difference between ocean gardens and land gardens, featuring visually stunning imagery for viewers and immersive ocean sounds.",
+    description: [
+      "Web platform where you can explore detailed information about the ocean, phytoplankton species, and the difference between ocean gardens and land gardens, featuring visually stunning imagery for viewers and immersive ocean sounds.",
+      "Participated in the 2023 NASA International Space Apps Challenge at the Universidad Aeronáutica en Querétaro (UNAQ). We were honored to be finalists in the social challenges track, which allowed us to share our vision and mission in front of an audience of over 50 people.",
+    ],
     link: "https://nasa-space-apps.vercel.app/",
     repo: "https://github.com/alancasre133/Nasaoceangarden",
     design:
@@ -36,8 +38,10 @@ const PROJECTS: Project[] = [
   },
   {
     name: "Nourish",
-    description:
-      "A mobile-first web application designed to tackle food insecurity by offering personalized menus and recipes tailored to students' nutritional needs.",
+    description: [
+      "Mobile-first web application designed to tackle food insecurity by offering personalized menus and recipes tailored to students' nutritional needs.",
+      "Created during the WaffleHacks 2023 hackathon, this project was the result of collaboration with an exceptional, multidisciplinary team. We partnered with Aura Daniela López Garduño, a nutritionist holding a degree from the University of Guanajuato (UGTO).",
+    ],
     link: "https://nourish.jacobflores.dev/",
     repo: "https://github.com/GerardoPrz/WaffleHacks-FoodInsecurity",
     design: "https://www.figma.com/file/rMtbBlgfmWpBIcp2x4LduD/Food-Insecurity",
@@ -84,9 +88,11 @@ const getProjectLinks = ({ link, repo, design }: Project): ProjectLink[] => {
             <section class="flex flex-col gap-4">
               <header>
                 <h3 class="mb-2 text-4xl font-semibold">{name}</h3>
-                <p class="text-lg text-slate-400 [text-wrap:balance]">
-                  {description}
-                </p>
+                <div class="flex flex-col gap-2 text-lg text-slate-400 [text-wrap:balance]">
+                  {description.map((text) => (
+                    <p>{text}</p>
+                  ))}
+                </div>
               </header>
               <div class="flex flex-wrap gap-x-6 gap-y-1">
                 {getProjectLinks(project).map(
