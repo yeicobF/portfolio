@@ -9,8 +9,15 @@ import LinkWithIcon from "../links/LinkWithIcon.astro"
 import List from "@/components/List.astro"
 import SectionTitle from "@/components/SectionTitle.astro"
 import Web from "@/icons/Web.astro"
+import YouTubeLogo from "@/icons/YouTube.astro"
 import ecotideImg from "@/assets/images/projects/ecotide.png"
 import nourishImg from "@/assets/images/projects/nourish.png"
+
+type ProjectLink = {
+  icon: (_props: Record<string, any>) => any
+  href?: string
+  text: string
+}
 
 type Project = {
   name: string
@@ -19,7 +26,8 @@ type Project = {
   repo?: string
   design?: string
   image: ImageMetadata
-  tech: string[]
+  skills: string[]
+  links?: ProjectLink[]
 }
 
 const PROJECTS: Project[] = [
@@ -34,7 +42,21 @@ const PROJECTS: Project[] = [
     design:
       "https://www.figma.com/file/lJEAo2G5GX0BAvf6KCCiyw/Ocean-Garden?type=design&node-id=0%3A1&mode=design&t=cuR1el7ELUlnsuQa-1",
     image: ecotideImg,
-    tech: ["Next.js", "Tailwind CSS", "TypeScript", "<model-viewer>"],
+    skills: [
+      "Public Speaking",
+      "Next.js",
+      "Tailwind CSS",
+      "Frontend",
+      "TypeScript",
+      "<model-viewer>",
+    ],
+    links: [
+      {
+        icon: YouTubeLogo,
+        href: "https://www.youtube.com/watch?v=1GgEvc66obg",
+        text: "Finalist Pitch",
+      },
+    ],
   },
   {
     name: "Nourish",
@@ -46,16 +68,23 @@ const PROJECTS: Project[] = [
     repo: "https://github.com/GerardoPrz/WaffleHacks-FoodInsecurity",
     design: "https://www.figma.com/file/rMtbBlgfmWpBIcp2x4LduD/Food-Insecurity",
     image: nourishImg,
-    tech: ["Next.js", "Tailwind CSS", "Firebase", "OpenAI API"],
+    skills: [
+      "Leadership",
+      "Next.js",
+      "Tailwind CSS",
+      "Frontend",
+      "Firebase",
+      "OpenAI API",
+    ],
   },
 ]
 
-type ProjectLink = {
-  icon: (_props: Record<string, any>) => any
-  href?: string
-  text: string
-}
-const getProjectLinks = ({ link, repo, design }: Project): ProjectLink[] => {
+const getProjectLinks = ({
+  link,
+  repo,
+  design,
+  links = [],
+}: Project): ProjectLink[] => {
   return [
     {
       icon: Web,
@@ -72,6 +101,7 @@ const getProjectLinks = ({ link, repo, design }: Project): ProjectLink[] => {
       href: repo,
       text: "Code",
     },
+    ...links,
   ]
 }
 ---
@@ -82,7 +112,7 @@ const getProjectLinks = ({ link, repo, design }: Project): ProjectLink[] => {
   <div class="flex flex-col gap-12">
     {
       PROJECTS.map((project) => {
-        const { name, description, link, image, tech } = project
+        const { name, description, link, image, skills } = project
         return (
           <article class="flex w-full flex-col gap-4 rounded-xl border-blue-500 from-transparent via-blue-700/10 via-40% to-blue-700/30 duration-200 hover:border-blue-300 md:gap-8 md:border-4 md:bg-gradient-to-tr md:p-4 md:transition-all md:hover:scale-105 lg:grid lg:grid-cols-2 lg:p-8">
             <section class="flex flex-col gap-4">
@@ -105,8 +135,8 @@ const getProjectLinks = ({ link, repo, design }: Project): ProjectLink[] => {
                 )}
               </div>
               <List>
-                {tech.map((tech) => (
-                  <Badge>{tech}</Badge>
+                {skills.map((skills) => (
+                  <Badge>{skills}</Badge>
                 ))}
               </List>
             </section>
