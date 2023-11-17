@@ -12,36 +12,49 @@ import solanaHackathonImg from "@/assets/images/solana-23/collage-transparent.pn
   id="about"
   class="max-w-9xl xl:grid xl:grid-cols-2 xl:gap-8"
 >
-  <div class="flex flex-col gap-4 text-lg [text-wrap:balance] max-w-2xl mx-auto xl:ml-auto w-full">
+  <div
+    class="mx-auto flex w-full max-w-2xl flex-col gap-4 text-lg [text-wrap:balance] xl:ml-auto"
+  >
     <SectionTitle>About Me</SectionTitle>
     <p>
       Hi there! I'm Jacob and I'm passionate about
-      <strong> web development and technology</strong>.
+      <strong> web development and technology</strong>. I'm currently working
+      with a team of talented developers as a
+      <Link
+        href="https://www.linkedin.com/in/jacob--flores/"
+      >Technology Manager</Link>.
     </p>
     <p>
-      Back in 2018, I started on my academic journey in <strong>
-        Intelligent Systems
-        Engineering
-      </strong>, unsure of the adventure that lay ahead. Fast forward to 2021,
+      Back in 2018, I started on my academic journey in
+      <strong>Intelligent Systems Engineering at UASLP</strong>.
       I found my passion when I stumbled upon web technologies and what frontend
       development was.
     </p>
     <p>
-      <strong>I've been learning and building projects ever since</strong>, and I'm currently
-      working with a team of talented developers as a Technology Manager.
-    </p>
-    <p>
       I love being part of a community, sharing my knowledge, and learning from
-      others. Lately, I've participated in <strong>hackathons</strong>
-       and <strong> given talks to my university peers</strong>, being part of a
-      community known as
-      <Link href="https://www.linkedin.com/company/studevs" target="_blank">Studevs</Link>.
+      others. Lately, I've participated in
+      <Link
+        href="https://www.linkedin.com/feed/update/urn:li:activity:7121192540745146369"
+      >
+        hackathons
+      </Link>
+      and
+      <Link
+        href="https://www.linkedin.com/feed/update/urn:li:activity:7110290471884644352"
+      >given talks to my university peers</Link>,
+      being part of a community known as
+      <Link 
+        href="https://www.linkedin.com/company/studevs"
+        target="_blank"
+      >Studevs</Link>.
     </p>
   </div>
-  <Image
-    src={solanaHackathonImg}
-    alt="Delivering a presentation at the Engineering Faculty Auditorium, Autonomum University of San Luis Potosí."
-    class="aspect-video rounded-lg object-cover h-full object-right brightness-110"
-    quality={1}
-  />
+  <Link href="https://www.instagram.com/p/CxZdGcsNRx6">
+    <Image
+      src={solanaHackathonImg}
+      alt="Delivering a presentation at the Engineering Faculty Auditorium, Autonomum University of San Luis Potosí."
+      class="aspect-video h-full rounded-lg object-cover object-right brightness-110"
+      quality={1}
+    />
+  </Link>
 </FullScreenSection>
