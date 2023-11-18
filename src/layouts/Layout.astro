@@ -29,7 +29,6 @@ const pageDescription = [description, DEFAULTS.description]
   .join(" ")
 const pageTitle = [title, DEFAULTS.title].filter(Boolean).join(" | ")
 const ogTitle = [title, DEFAULTS.ogTitle].filter(Boolean).join(" | ")
-
 ---
 
 <!doctype html>
@@ -57,9 +56,9 @@ const ogTitle = [title, DEFAULTS.ogTitle].filter(Boolean).join(" | ")
     <meta property="twitter:card" content="summary_large_image" />
   </head>
 
-  <body class="relative min-h-screen flex flex-col">
+  <body class="relative flex min-h-screen flex-col">
     <Header />
-    <div class="flex flex-1 h-full flex-col items-center">
+    <div class="flex h-full flex-1 flex-col items-center">
       <slot />
     </div>
     <Footer />
