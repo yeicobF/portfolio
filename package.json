@@ -10,7 +10,7 @@
     "astro": "astro",
     "lint": "eslint --ext .astro,.js,.jsx,.ts,.tsx src",
     "lint:fix": "pnpm lint --fix",
-    "format": "prettier --write . --plugin=prettier-plugin-astro --plugin=prettier-plugin-tailwindcss"
+    "format": "prettier --write . --cache --plugin=prettier-plugin-astro --plugin=prettier-plugin-tailwindcss"
   },
   "dependencies": {
     "@astrojs/sitemap": "3.0.1",
