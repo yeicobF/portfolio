@@ -6,8 +6,8 @@ const updateBackgroundOnMouseMove = (event: MouseEvent): void => {
 
   // Escucha el evento "mousemove" en el elemento seleccionado.
   // Obtiene las coordenadas del cursor en relación con el elemento.
-  const x = (event.clientX / body.clientWidth) * 100
-  const y = (event.clientY / body.clientHeight) * 100
+  const x = (event.pageX / body.clientWidth) * 100
+  const y = (event.pageY / body.clientHeight) * 100
 
   // const ORIGINAL_GRADIENT =
   //   "radial-gradient(800px at 10% 15%, rgba(192, 13, 224, 0.05), transparent 80%)"
