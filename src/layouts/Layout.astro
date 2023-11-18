@@ -3,65 +3,58 @@ import "@fontsource-variable/inter"
 import "../assets/main.css"
 import Footer from "@/components/Footer.astro"
 import Header from "@/components/Header.astro"
-import socialImageUrl from "@/assets/images/og-preview.png"
+import ogImageUrl from "@/assets/images/og/og-v2.png"
 
 type Props = {
   title?: string
+  description?: string
 }
 
-const { title } = Astro.props
+const { title, description } = Astro.props
 
-const DESCRIPTION =
-  "Jacob Flores is a passionate frontend developer, dedicated to crafting engaging web experiences and innovative projects."
-
-const DEFAULT_TITLE = "Jacob Flores"
-
-const currentTitle = title ? `${title} | ${DEFAULT_TITLE}` : DEFAULT_TITLE
-
-const portfolioPrefix = `${DEFAULT_TITLE} Portfolio`
-const ogTitle = title ? `${portfolioPrefix} | ${title}` : portfolioPrefix
-
+const TWITTER_HANDLE = "@yeiicobF"
 // https://docs.astro.build/en/reference/api-reference/#astrourl
 // Construct a canonical URL using your production domain
 const canonicalURL = new URL(Astro.url.pathname, Astro.site)
-// Construct a URL for SEO meta tags using your current domain
-// const socialImageUrl = new URL("/images/og-preview.png", Astro.site)
 
-// const squareSocialImageURL = new URL(
-//   "/images/square-og-preview.png",
-//   Astro.site,
-// )
+const DEFAULTS = {
+  title: "Jacob Flores",
+  description:
+    "Jacob Flores is a passionate frontend developer, dedicated to crafting engaging web experiences and innovative projects.",
+  ogTitle: "Jacob Flores Portfolio",
+}
 
-const TWITTER_HANDLE = "@yeiicobF"
+const pageDescription = [description, DEFAULTS.description]
+  .filter(Boolean)
+  .join(" ")
+const pageTitle = [title, DEFAULTS.title].filter(Boolean).join(" | ")
+const ogTitle = [title, DEFAULTS.ogTitle].filter(Boolean).join(" | ")
+
 ---
 
 <!doctype html>
 <html lang="en" class="scroll-smooth focus:scroll-auto">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content={DESCRIPTION} />
+    <meta name="description" content={pageDescription} />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <title>{currentTitle}</title>
+    <title>{pageTitle}</title>
 
     <link rel="sitemap" href="/sitemap-index.xml" />
 
     <meta property="og:title" content={ogTitle} />
-    <meta property="og:description" content={DESCRIPTION} />
+    <meta property="og:description" content={pageDescription} />
     <meta property="og:url" content={canonicalURL} />
-    <meta property="og:image" content={socialImageUrl.src} />
+    <meta property="og:image" content={ogImageUrl.src} />
 
     <meta property="twitter:title" content={ogTitle} />
-    <meta property="twitter:description" content={DESCRIPTION} />
-    <meta property="twitter:image" content={socialImageUrl.src} />
+    <meta property="twitter:description" content={pageDescription} />
+    <meta property="twitter:image" content={ogImageUrl.src} />
     <meta property="twitter:site" content={TWITTER_HANDLE} />
     <meta property="twitter:creator" content={TWITTER_HANDLE} />
     <meta property="twitter:card" content="summary_large_image" />
-
-    <!-- <script src="../lib/updateBackgroundOnMouseMove.js">
-    // https://docs.astro.build/en/guides/client-side-scripts/
-    </script> -->
   </head>
 
   <body class="relative min-h-screen">
