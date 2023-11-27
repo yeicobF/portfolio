@@ -1,8 +1,10 @@
 ---
 import EmailLogo from "@/icons/Email.astro"
+import FilledFileLogo from "@/icons/FilledFile.astro"
 import GitHubLogo from "@/icons/GitHub.astro"
 import LinkedInLogo from "@/icons/LinkedIn.astro"
 import YouTubeLogo from "@/icons/YouTube.astro"
+import resume from "@/assets/resume-20231127.pdf"
 
 type Props = {
   size?: "sm" | "md" | "lg"
@@ -38,6 +40,11 @@ const SOCIAL_MEDIA = [
     name: "Email",
     url: "mailto:jacobfloresrdz@gmail.com",
     icon: EmailLogo,
+  },
+  {
+    name: "Resume",
+    url: resume,
+    icon: FilledFileLogo,
   },
 ]
 ---
