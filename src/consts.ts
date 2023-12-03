@@ -1,6 +1,6 @@
 export const ME = {
   name: "Jacob Flores",
-  role: "Frontend Developer",
+  role: "Frontend Engineer",
   company: {
     name: "",
     web: "",
