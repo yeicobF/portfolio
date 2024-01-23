@@ -1,6 +1,6 @@
 ---
-import EmailLogo from "@/icons/Email.astro"
-import FilledFileLogo from "@/icons/FilledFile.astro"
+import EmailIcon from "@/icons/Email.astro"
+import FileDownIcon from "@/icons/FileDown.astro"
 import GitHubLogo from "@/icons/GitHub.astro"
 import LinkedInLogo from "@/icons/LinkedIn.astro"
 import YouTubeLogo from "@/icons/YouTube.astro"
@@ -31,14 +31,14 @@ const SOCIAL_MEDIA = [
     icon: LinkedInLogo,
   },
   {
-    name: "Resume",
-    url: "/jacob-flores-resume.pdf",
-    icon: FilledFileLogo,
+    name: "My Resume!",
+    url: "/francisco-facob-flores-rodríguez-resume-20240118.pdf",
+    icon: FileDownIcon,
   },
   {
     name: "Email",
     url: "mailto:jacobfloresrdz@gmail.com",
-    icon: EmailLogo,
+    icon: EmailIcon,
   },
   {
     name: "YouTube",
@@ -59,6 +59,7 @@ const SOCIAL_MEDIA = [
           "text-white transition-colors duration-200 hover:text-blue-400",
           sizes[size],
         ]}
+        title={name}
         aria-label={name}
       >
         <Icon />
