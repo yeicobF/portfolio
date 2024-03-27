@@ -41,7 +41,30 @@ const AIA_PARTNERS = {
   website: "https://www.aiapartner.com/",
 }
 
+const QUALTRICS = {
+  name: "Qualtrics",
+  website: "https://www.qualtrics.com/",
+}
+
 const EXPERIENCE: ExperienceBlock[] = [
+  {
+    company: QUALTRICS,
+    experiences: [
+      {
+        role: "Software Support Engineer I",
+        description:
+          "Maintain and operate scalable, fast, and robust solutions and solve complex customer issues and business problems.",
+        startDate: "2024-03-25",
+        // links: [
+        //   {
+        //     name: "Qualtrics",
+        //     url: "https://www.qualtrics.com/",
+        //   },
+        // ],
+        tags: ["Scalability", "Automation", "Technical Support"],
+      },
+    ],
+  },
   {
     company: AIA_PARTNERS,
     experiences: [
@@ -50,6 +73,7 @@ const EXPERIENCE: ExperienceBlock[] = [
         description:
           "Managed a team of 5 developers to build projects, involving every step of the software development life cycle with the mission of growing the company's digital ecosystem. Developed many projects, involving both frontend and backend technologies.",
         startDate: "2023-06-16",
+        endDate: "2024-02-02",
         tags: [
           "Leadership",
           "Project Management",
