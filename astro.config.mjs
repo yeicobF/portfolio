@@ -2,7 +2,7 @@ import { defineConfig } from "astro/config"
 import sitemap from "@astrojs/sitemap"
 import tailwind from "@astrojs/tailwind"
 // https://docs.astro.build/en/guides/integrations-guide/vercel/#targets
-import vercel from "@astrojs/vercel/static"
+import vercel from "@astrojs/vercel"
 
 // https://astro.build/config
 export default defineConfig({
