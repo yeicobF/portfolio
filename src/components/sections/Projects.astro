@@ -12,6 +12,8 @@ import Web from "@/icons/Web.astro"
 import YouTubeLogo from "@/icons/YouTube.astro"
 import ecotideImg from "@/assets/images/projects/ecotide/ecotide.png"
 import ecotideLogo from "@/assets/images/projects/ecotide/bare-logo.png"
+import locoBunnyComicsImg from "@/assets/images/projects/loco-bunny-comics/comic-series.png"
+import locoBunnyComicsLogo from "@/assets/images/projects/loco-bunny-comics/round-logo.png"
 import nourishImg from "@/assets/images/projects/nourish.png"
 import nourishLogo from "@/assets/images/projects/nourish/bare-logo.png"
 
@@ -34,6 +36,28 @@ type Project = {
 }
 
 const PROJECTS: Project[] = [
+  {
+    name: "Loco Bunny Commics",
+    description: [
+      "Responsive platform for visualizing an independent artist's comics",
+      "Designed and developed an end-to-end, mobile-first web platform, collaborating with a colleague to deliver an intuitive user interface tailored to client needs using Figma, Next.js, TypeScript, Tailwind CSS, and shadcn/ui React components.",
+      "Optimized site performance by implementing Next.js Server Components and generateStaticParams for static rendering at build time, ensuring consistently fast loading speeds with pre-generated content ready on page load.",
+    ],
+    logo: locoBunnyComicsLogo,
+    link: "https://www.locobunnycomics.com/",
+
+    image: locoBunnyComicsImg,
+    skills: [
+      "Next.js Server Components",
+      "Static rendering",
+      "shadcn/ui",
+      "Tailwind CSS",
+      "Frontend",
+      "TypeScript",
+      "Figma",
+    ],
+    links: [],
+  },
   {
     name: "Ecotide",
     description: [
