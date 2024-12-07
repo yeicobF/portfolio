@@ -1,5 +1,8 @@
 {
   "extends": "astro/tsconfigs/strict",
+  // https://docs.astro.build/en/guides/upgrade-to/v5/#what-should-i-do-13
+  "include": [".astro/types.d.ts", "**/*"],
+  "exclude": ["dist"],
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
