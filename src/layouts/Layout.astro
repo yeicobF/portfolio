@@ -3,6 +3,7 @@ import "@fontsource-variable/inter"
 import "../assets/main.css"
 import Footer from "@/components/Footer.astro"
 import Header from "@/components/Header.astro"
+import SpeedInsights from "@vercel/speed-insights/astro"
 import ogImageUrl from "@/assets/images/og/og-v2.png"
 
 type Props = {
@@ -63,7 +64,10 @@ const ogTitle = [title, DEFAULTS.ogTitle].filter(Boolean).join(" | ")
     </div>
     <Footer />
   </body>
+
+  <SpeedInsights />
 </html>
+
 <style is:global>
   :root {
     --accent: 136, 58, 234;
